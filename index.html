@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<script src="script.js"></script>
+<link rel="stylesheet" href="styles.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects Portfolio</title>
+</head>
+<body>
+    <div id="sidebar">
+        <ul>
+            <li onclick="changeContent('jobAssistant')">Job Seeker Assistant</li>
+            <li onclick="changeContent('usbScanner')">USB Scanner</li>
+            <li onclick="changeContent('eveLinks')">EVE Links</li>
+            <li onclick="changeContent('boatTracker')">BoatTracker</li>
+        </ul>
+    </div>
+
+    <!---
+        To add more 
+        <div id="name">
+        
+        </div 
+
+        <li onclick="changeContent('name')">My Project</li>
+
+        the script should not need to be changed as it should get the top one by default now
+    -->
+
+    <div id="main">
+        <div id="jobAssistant">
+            <!-- Content for Job Seeker Assistant -->
+            <h1>Job Seeker Assistant</h1>
+            <h2>Overview</h2>
+            <table class="details_table">
+                <tr>
+                    <td style="width: 150px;">Project Started</td>
+                    <td>May 2024</td>
+                </tr>
+                <tr>
+                    <td>Project Ended</td>
+                    <td>in progress</td>
+                </tr>  
+                <tr>
+                    <td>Platform</td>
+                    <td>Android</td>
+                </tr> 
+                <tr>
+                    <td>Code</td>
+                    <td>Java</td>
+                </tr>            
+            </table> 
+            <br>
+            <h2>Functionality</h2>
+
+            <br><br>
+            <h2>Project Outcome</h2>
+            <br>
+            <p>copyright © 2024 Dean2500</p>
+            <!-- You can add images, headers, or any other content specific to this item here -->
+        </div>
+
+
+
+
+
+        <div id="usbScanner" style="display: none;">
+            <!-- Content for USBScanner -->
+            <h1>USB Scanner</h1>
+            <h2>Overview</h2>
+            <table class="details_table">
+                <tr>
+                    <td style="width: 150px;">Project Started</td>
+                    <td>July 2023</td>
+                </tr>
+                <tr>
+                    <td>Project Ended</td>
+                    <td>July 2023</td>
+                </tr>  
+                <tr>
+                    <td>Platform</td>
+                    <td>Linux</td>
+                </tr> 
+                <tr>
+                    <td>Code</td>
+                    <td>Python</td>
+                </tr>            
+            </table> 
+            <br>
+            <h2>Functionality</h2>
+            <div class="section">
+                <h3>USBScanner Program Functionality</h3>
+                <p>The USBScanner program operates seamlessly in a command-line environment, where user interaction is minimal. 
+                    However, its outputs are readily visible throughout its execution.</p>
+            </div><br>
+            
+            <div class="section">
+                <h3>Initialization Process</h3>
+                <p>Upon its first execution, USBScanner automatically captures and stores information regarding all connected USB ports a
+                    nd devices. This initial setup phase occurs silently in the background, without necessitating any user input. 
+                    It establishes a comprehensive reference list of known USB devices for subsequent comparisons.</p>
+            </div><br>
+            
+            <div class="section">
+                <h3>Comparison with Known USB Devices</h3>
+                <p>During subsequent runs, USBScanner compares the current state of connected USB devices with the reference list generated
+                    during initialization. It efficiently identifies any new or unknown devices that were not present during the initial scan.</p>
+            </div><br>
+            
+            <div class="section">
+                <h3>Listing Unknown Devices</h3>
+                <p>USBScanner produces a detailed output, listing all unknown USB devices detected during the comparison process. Each entry 
+                    in the output includes essential information such as the Device ID, Name (if available), and Path/Bus details, enabling users 
+                    to easily identify devices. This capability was born out of the need to identify unknown devices' details as a part of a much larger
+                     project I cannot discuss.</p>
+            </div><br>            
+            
+            <div class="section">
+                <h3>Automatic Execution and Output</h3>
+                <p>As a standalone script, USBScanner operates autonomously, executing automatically without requiring any user interaction. 
+                    Throughout its execution, the program provides clear and concise output, visible in the command-line interface in real-time. 
+                    This allows users to monitor the process and review connected devices efficiently.</p>
+            </div>
+            <br><br>
+            <h2>Project Outcome</h2>
+            <div class="section">
+                <h3>Streamlined Task Efficiency</h3>
+                <p>USBScanner transformed a time-consuming task, prone to human error, into a seamless
+                     process that now takes only seconds. By automating the identification of unknown USB devices and providing all necessary 
+                     details swiftly.</p>
+            </div>
+            
+            <br>
+            <p>copyright © 2024 Dean2500</p>
+        </div>
+
+
+
+
+
+
+        <div id="eveLinks" style="display: none;">
+            <!-- Content for EVE Links -->
+            <h1>EVE Links</h1>
+            <h2>Overview</h2>
+            <table class="details_table">
+                <tr>
+                    <td style="width: 150px;">Project Started</td>
+                    <td>May 2023</td>
+                </tr>
+                <tr>
+                    <td>Project Ended</td>
+                    <td>June 2023</td>
+                </tr>  
+                <tr>
+                    <td>Platform</td>
+                    <td>Windows</td>
+                </tr> 
+                <tr>
+                    <td>Code</td>
+                    <td>C#</td>
+                </tr>            
+            </table>   
+            <br>
+            <h2>Functionality</h2>
+            <div class="section">
+                <h3>Thorough Testing</h3>
+                <p>Testing ensures stability and prevents crashes, crucial for maintaining responsiveness during critical moments. 
+                    Crashes are particularly detrimental as they slow down response times when rapid action is required.</p>
+            </div><br>
+            <div class="section">
+                <h3>Redundancy and Fail-Safes</h3>
+                <p>Multiple fail-safes and redundancy mechanisms are incorporated to enhance reliability and minimize the risk of failure,
+                     ensuring uninterrupted operation.</p>
+            </div><br>
+            <div class="section">
+                <h3>Space-Efficient Design</h3>
+                <p>The program is designed to occupy minimal screen space on a secondary display, ensuring quick access to essential features
+                     without clutter. This streamlined design optimizes user workflow and efficiency.</p>
+            </div><br>
+            <div class="section">
+                <h3>Utilization of Unit Testing in C#</h3>
+                <p>The program's development process includes unit testing in C#, a robust testing framework for C# applications. This systematic 
+                    testing approach validates individual components and contributes to overall reliability.</p>
+            </div><br>
+            <div class="section">
+                <h3>Emphasis on Efficiency and Speed</h3>
+                <p>The program prioritizes efficiency and speed in its design and functionality. While not necessarily the most memory-efficient, 
+                    it leverages a garbage collector during memory-intensive tasks to maintain performance levels. This focus on efficiency ensures 
+                    swift execution of tasks and enhances user productivity.</p>
+            </div>
+            
+            <table>
+                <tr>
+                    <td>
+                        <figure>
+                            <img src="images/evelinks/main_screen.png" alt="Main Screen">
+                            <figcaption>Main Window</figcaption>
+                        </figure>
+                    </td>
+
+                    <td>
+                        <p>
+                            The main window of the application is divided into two scrollable displays, each presenting a list of entries containing descriptions 
+                            linked to their corresponding URLs. These entries are sorted alphabetically, with the sorting operation executed upon saving and the sorted 
+                            sequence preserved within the file.
+                        </p>
+                        <p>
+                            In the settings section, users can access various functionalities. Firstly, they can instantly copy an entry to the clipboard by clicking on it. 
+                            Additionally, if the "description is hyperlink" option is selected, the entry format changes to a clickable hyperlink, displaying both the description 
+                            and the URL. For example, if the user selects this option and clicks on an entry titled "EVE Academy - How to get into incursions," the format would 
+                            be <a href="https://www.eveonline.com/eve-academy/careers/enforcer/incursions">EVE Academy - How to get into incursions</a>. If this checkbox is not 
+                            selected, the entry format displays the raw URL only, such as <a href="https://www.eveonline.com/eve-academy/careers/enforcer/incursions">https://www.eveonline.com/eve-academy/careers/enforcer/incursions</a>. Another feature in 
+                            this section allows users to delete all data. Upon reloading the application, the file database will be populated with predefined entries.
+                        </p>                     
+                        <p>
+                            In the details section, users can view comprehensive information about the selected entry, including both the link and description. This section 
+                            also enables users to perform various actions such as editing, deletion, and addition of entries. Additionally, users can copy the entry to the 
+                            lipboard with a single click, eliminating the need to select it twice. Furthermore, the application facilitates the opening of the link associated 
+                            with the entry directly in the user's browser for further exploration.
+                        </p>       
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>
+                        <figure>
+                            <img src="images/evelinks/search_example.png" alt="Search Example">
+                            <figcaption>Main Window - Entry Search</figcaption>
+                        </figure>
+                    </td>
+                    
+                    <td>
+                        <p>
+                            The search function in the main window provides a dynamic experience by updating the WPF tables in 
+                            real-time with each keystroke entered into the search field. The search is case insensitive, 
+                            ensuring that matches are found regardless of the letter case used in the search query.
+                        </p>
+                        <p>
+                            As the user types, the search function checks both the URL and description fields for matches. 
+                            This comprehensive search ensures that relevant results are displayed to the user, whether they're 
+                            searching for specific URLs or descriptions.
+                        </p>    
+                        <p>
+                            In addition to the search functionality, when an entry is clicked, the program provides additional information 
+                            indicating whether it's from a third party or not. This information is crucial given the context in which the 
+                            program is used. Even if the user enters something else in the search bar but doesn't click on a new entry,
+                            this feature ensures that they are informed about the source of the selected entry. This transparency helps 
+                            users make informed decisions and maintain awareness of the origin of the displayed content, enhancing the overall 
+                            usability and trustworthiness of the application.
+                        </p>
+                           
+                        <p>
+                            To maintain responsiveness and reduce lag, asynchronous threading is employed. This means that 
+                            the search operation is performed asynchronously in a separate thread, allowing the user interface 
+                            to remain smooth and responsive even during intensive search operations. By leveraging async threading, 
+                            the search function delivers a seamless user experience, providing quick and accurate results without sacrificing 
+                            performance.
+                        </p>
+                            
+                    </td>
+                </tr>
+            </table>  
+            <table>  
+                <tr>
+                    <td>
+                        <figure>
+                            <img src="images/evelinks/add_entry.png" alt="Add Entry">
+                            <figcaption>Add / Edit Entry Window</figcaption>
+                        </figure> 
+                    </td>
+                    
+                    <td>
+                        <p> 
+                            The add/edit entry window streamlines the process of adding or modifying entries in the database. 
+                            Depending on whether the window is in "add entry" or "edit entry" mode, the behavior differs. 
+                            In "add entry" mode, the fields are left empty, enabling users to input new data from scratch, 
+                            while in "edit entry" mode, the fields are pre-filled with existing data from the database, facilitating modifications to specific entries.
+                        </p>
+                        <p>
+                            Regardless of the mode, the window offers an autofill feature that becomes available only if a valid URL is provided, 
+                            enhancing user convenience by populating fields automatically and expediting the data entry process. During URL extraction,
+                             the system utilizes an advanced algorithm to analyze the URL for keywords. If the URL is from YouTube, 
+                             the system determines the YouTube channel that posted the video, adding an extra layer of information retrieval. 
+                             While this process may introduce a slight delay due to web scraping and analysis, it ensures accurate and comprehensive 
+                             data extraction.
+                        </p>
+                        <p>
+                            Upon completion of validation checks and ensuring no missing information, the system proceeds to save or update the entry
+                             in the master list. Following this, the master list is sorted, and the updated data is saved to a file, ensuring the database 
+                             remains organized and up-to-date. This efficient process ensures seamless management of entries while maintaining data integrity and reliability.
+                        </p>
+                    </td>
+                </tr>
+            
+            </table>  
+            <table>  
+                <tr>
+                    <td>
+                        <figure>
+                            <img src="images/evelinks/delete_prompt.png" alt="Delete Prompt">
+                            <figcaption>Delete Prompt</figcaption>
+                        </figure>
+
+                    </td>
+                    
+                    <td>
+                        <p>The delete prompt acts as a safety measure to prevent accidental deletions. It prompts users to confirm their deletion action,
+                             reducing the risk of unintentional data loss by providing an extra layer of defense against mistakes.</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <figure>
+                            <img src="images/evelinks/visit_website_prompt.png" alt="Visit Link Prompt">
+                            <figcaption>Visit Link Prompt</figcaption>
+                        </figure>
+
+                    </td>
+                    
+                    <td>
+                        <p>The "Visit link" prompt offers users the option to navigate to external websites. If users choose to proceed, 
+                            the prompt effectively warns them before opening the link in a web browser, ensuring they are aware of the action.
+                             This preemptive warning prevents the surprise of a web browser page suddenly opening, providing a smoother and more
+                              controlled browsing experience for users.</p>
+                    </td>
+                </tr>
+
+            </table>                   
+
+            <br><br>
+            <h2>Project Outcome</h2>
+            <div class="section">
+                <h3>Enhanced Access with EVE Links</h3>
+                <p>EVE Links aimed to streamline access to a plethora of valuable resources within the EVE Online universe. Offering a faster alternative to 
+                    manually searching through notebooks for links, EVE Links provided quicker and easier access to essential information, improving efficiency
+                    in assisting fellow players and aiding in volunteering efforts within the game.</p>
+            </div><br>
+            
+            <div class="section">
+                <h3>Efficient Keyword Search</h3>
+                <p>With EVE Links' case-insensitive search function, users could input keywords to swiftly locate relevant information without the need for 
+                    precise typing. This feature facilitated quicker assistance and information retrieval, empowering players to find what they needed promptly, 
+                    whether it was ship fittings, market trends, or mission guides, thereby aiding in their volunteering tasks within the game.</p>
+            </div><br>
+            
+            <div class="section">
+                <h3>Reliable Performance Under Load</h3>
+                <p>EVE Links was engineered to maintain stability and responsiveness even under heavy usage or prolonged periods of inactivity followed by sudden 
+                    intensive usage. This ensured that users could rely on the tool whenever they needed it, without worrying about slowdowns or interruptions to 
+                    their volunteering efforts within the game.</p>
+            </div><br>
+            
+            <div class="section">
+                <h3>Limited Adoption Despite Offer</h3>
+                <p>Despite being offered to others, EVE Links was ultimately not adopted by the wider EVE Online community, who preferred to stick with their 
+                    existing system. Despite the lack of wider adoption, EVE Links effectively served its intended purpose of providing quick access to valuable links and enhancing efforts
+                    within to help others in EVE Online.</p>
+            </div>
+            
+            <br>
+            <p>copyright © 2024 Dean2500</p>
+        </div>
+
+
+
+
+
+
+
+        <div id="boatTracker" style="display: none;">
+            <!-- Content for BoatTracker-->
+            <h1>BoatTracker</h1>
+            <h2>Overview</h2>
+            <table class="details_table">
+                <tr>
+                    <td style="width: 150px;">Project Started</td>
+                    <td>July 2018</td>
+                </tr>
+                <tr>
+                    <td>Project Ended</td>
+                    <td>June 2021</td>
+                </tr>  
+                <tr>
+                    <td>Platform</td>
+                    <td>Android</td>
+                </tr> 
+                <tr>
+                    <td>Code</td>
+                    <td>Java</td>
+                </tr>            
+            </table>
+
+            <br>
+            <h2>Functionality</h2>
+            <div class="section">
+                <h3>Efficient Racer Addition</h3>
+                <p>BoatTracker simplified the process of adding racers, ensuring swift entry of participant details into the system. 
+                    This streamlined workflow optimized the checkpoint operation.</p>
+            </div><br>
+            
+            <div class="section">
+                <h3>Quick Racer Details Search</h3>
+                <p>With BoatTracker, the user could rapidly search for racer details using assigned numbers, facilitating 
+                    immediate access to relevant information. This feature expedited decision-making at the checkpoint.</p>
+            </div><br>
+            
+            <div class="section">
+                <h3>Flexible Entry Editing</h3>
+                <p>BoatTracker allowed for the editing of previously saved entries, offering flexibility to rectify mistakes without causing disruptions. 
+                    This capability was vital in maintaining accuracy during hectic periods at the checkpoint.</p>
+            </div><br>
+            
+            <div class="section">
+                <h3>Reliable Redundancy</h3>
+                <p>Designed with redundancy in mind, Boatracker minimized the risk of crashes and errors. It ensured accurate inputs while permitting necessary edits, 
+                    thereby maintaining operational continuity at the checkpoint.</p>
+            </div><br>
+            
+            <div class="section">
+                <h3>Optimized Display</h3>
+                <p>BoatTracker's high-contrast and simplistic display design ensured readability even in outdoor environments. This user-centric approach
+                    improved usability and minimized errors during data entry.</p>
+            </div>
+            
+            
+            <br><br>
+            <h2>Project Outcome</h2>
+            <div class="section">
+                <h3>Checkpoint Efficiency</h3>
+                <p>BoatTracker significantly enhanced efficiency at the checkpoint by streamlining racer tracking processes. 
+                    It facilitated quicker access to racer details, reducing waiting times and improving overall workflow efficiency.</p>
+            </div><br>
+            
+            <div class="section">
+                <h3>Real-time Tracking Benefits</h3>
+                <p>BoatTracker provided real-time passing times of boats, eliminating the need for manual tracking methods. Although its impact was confined 
+                    to the checkpoint, this feature fostered improved communication and coordination within the checkpoint team.</p>
+            </div><br>
+            
+            <div class="section">
+                <h3>Enhanced Accuracy</h3>
+                <p>By providing more accurate and reliable tracking data, Boatracker contributed to improved decision-making and record-keeping at the checkpoint. 
+                    Its precise data ensured that the checkpoint personnel had reliable information at their fingertips.</p>
+            </div>          
+            
+            <br>
+            <p>copyright © 2024 Dean2500</p>
+
+        </div>
+    </div>
+</body>
+</html>
