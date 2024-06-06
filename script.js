@@ -1,5 +1,3 @@
-document.querySelector('#main > div:first-child').style.display = 'block';
-
  function changeContent(id) {
      var contents = document.querySelectorAll('#main > div');
      for (var i = 0; i < contents.length; i++) {
@@ -7,3 +5,5 @@ document.querySelector('#main > div:first-child').style.display = 'block';
      }
      document.getElementById(id).style.display = 'block';
  }
+
+  
