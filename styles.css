@@ -43,17 +43,15 @@ body {
     color: #fff;
 }
 
-/*
-    Code for the about area
-*/
 
-.about_table td {
+td {
     vertical-align: top;
 }
 
-.about_table h4 {
-    margin-bottom: 10px;
+h1 h2 h3 h4 h5 {
+    margin-top: 30px;
 }
+
 
 /*
     Code for the div being used to isolate
@@ -94,10 +92,14 @@ figcaption {
     color: #fff;
 }
 
+figure {
+    margin-left: 0px;
+    margin-right: 15px;
+}
+
 /*
    change the link colour so its more visible given the dark theme
 */
 a {
     color: lightblue;
 }
-
