@@ -9,669 +9,639 @@
     <title>Portfolio</title>
 </head>
 <body>
-    <!-- Side menu -->
-    <div id="sidebar">
-        <ul>
-            <li onclick="changeContent('about')">About Me</li>
-            <li onclick="changeContent('jobAssistant')">Job Seeker Assistant</li>
-            <li onclick="changeContent('usbScanner')">USB Scanner</li>
-            <li onclick="changeContent('deident')">De-identifier Project</li>
-            <li onclick="changeContent('eveLinks')">EVE Links</li>
-            <li onclick="changeContent('boatTracker')">BoatTracker</li>
-        </ul>
-    </div>
+    <div>
+        <!-- Side menu -->
+        <div id="sidebar">
+            <ul>
+                <li onclick="changeContent('jobAssistant')">Job Seeker Assistant</li>
+                <li onclick="changeContent('usbScanner')">USB Scanner</li>
+                <li onclick="changeContent('deident')">De-identifier Project</li>
+                <li onclick="changeContent('eveLinks')">EVE Links</li>
+                <li onclick="changeContent('boatTracker')">BoatTracker</li>
+            </ul>
+        </div>
 
-    <!---
-        To add more 
-        <div id="name">
-             <h1>Job Seeker Assistant</h1>
-             <h2>Overview</h2>
-             <br><br>
-             <h2>Functionality</h2>
-             <br><br>
-             <h2>Project Outcome</h2>
-             <br>
-             <p  style="text-align: center;">copyright © 2024 Dean Rotondella all rights reserved</p>
-        </div 
+        <!---
+            To add more 
+            <div id="name">
+                <h1>Job Seeker Assistant</h1>
+                <h2>Overview</h2>
+                <br><br>
+                <h2>Functionality</h2>
+                <br><br>
+                <h2>Project Outcome</h2>
+                <br>
+                <p  style="text-align: center;">copyright © 2024 Dean Rotondella all rights reserved</p>
+            </div 
 
-        <li onclick="changeContent('name')">My Project</li>
+            <li onclick="changeContent('name')">My Project</li>
 
-        the script should not need to be changed as it should get the top one by default now
-    -->
+            the script should not need to be changed as it should get the top one by default now
+        -->
 
-    <div id="main">
-
-        <!-- About Section -->
-        <div id="about">
+        <div id="contact_div">
+            <h2>Dean Rotondella</h2>
+                <h3>Software Engineer</h3>
+                <p>I'm a passionate software engineer with expertise in various programming languages and technologies. (more detail)</p>
+                <h4>Contact</h4>
                 <table>
-                <tr>
-                    <td>
-                        <h2>Dean Rotondella</h2>
-                        <h3>Software Engineer</h3>
-                        <h4>Contact</h4>
-                        <table>
-                            <tr>
-                                <td>
-                                    <a href="www.linkedin.com/in/dean-rotondella-94a939207"><img src="images/logos/linkedin_icon.png" width="50" height="50" alt="linkedin"></a>
-                                </td>
+                    <tr>
+                        <td>
+                            <a href="www.linkedin.com/in/dean-rotondella-94a939207"><img src="images/logos/linkedin_icon.png" width="50" height="50" alt="linkedin"></a>
+                        </td>
 
-                                <td>
-                                    <a href="https://github.com/Dean2500"><img src="images/logos/github.png" width="50" height="50" alt="github"></a>
-                                </td>
-                            </tr>
-                        </table>
-                    </td>
-
-                    <td>
-                        <div style="margin-left: 50px;">
-                            <h1>About Me</h1>
-                            <p>I'm a passionate software engineer with expertise in various programming languages and technologies. (more detail)</p>
-
-                            <h4>Programming Languages</h4>
-                            <ul>
-                                <li>Java</li>
-                                <li>C#</li>
-                                <li>Python</li>
-                            </ul>
-
-                            <h4>Platform  Proficiency</h4>
-                            <ul>
-                                <li>Android</li>
-                                <li>Windows</li>
-                                <li>Linux</li>
-                            </ul>
-                        </div>
-                        <p  style="text-align: center;">copyright © 2024 Dean Rotondella all rights reserved</p>
-                    </td>
-                </tr>
+                        <td>
+                            <a href="https://github.com/Dean2500"><img src="images/logos/github.png" style="margin-left: 10px;" width="50" height="50" alt="github"></a>
+                        </td>
+                    </tr>
             </table>
-            
-            <br>
-            
         </div>
 
-        <!-- Insert new projects below here -->
+        <div id="main">
+            <!-- Insert new projects below here -->
 
 
 
-        <!-- Job Seeker Assistant Project -->
-        <div id="jobAssistant"  style="display: none;">
-            <h1>Job Seeker Assistant</h1>
-            <h2>Overview</h2>
-            <table class="details_table">
-                <tr>
-                    <td style="width: 150px;">Project Started</td>
-                    <td>May 2024</td>
-                </tr>
-                <tr>
-                    <td>Project Ended</td>
-                    <td>in progress</td>
-                </tr>  
-                <tr>
-                    <td>Platform</td>
-                    <td>Android</td>
-                </tr> 
-                <tr>
-                    <td>Code</td>
-                    <td>Java</td>
-                </tr>            
-            </table> 
-            <br><br>
-            <h2>Functionality</h2>
-
-            <br><br>
-            <h2>Project Outcome</h2>
-            <br>
-            <p  style="text-align: center;">copyright © 2024 Dean Rotondella all rights reserved</p>
-        </div>
-
-
-
-
-
-        <!-- De-identifier Project -->
-        <div id="deident" style="display: none;">
-        <h1>De-identifier Project</h1>
-             <h2>Overview</h2>
-             <p>
-                Developed collaboratively by a team of two developers.
-            </p>
-             <table class="details_table">
-                <tr>
-                    <td style="width: 150px;">Project Started</td>
-                    <td>June 2023</td>
-                </tr>
-                <tr>
-                    <td>Project Ended</td>
-                    <td>July 2023</td>
-                </tr>  
-                <tr>
-                    <td>Platform</td>
-                    <td>Linux</td>
-                </tr> 
-                <tr>
-                    <td>Code</td>
-                    <td>Java</td>
-                </tr>            
-            </table> 
-            <br>
-            <div class="section">
-                <h3>User Authorization and Legal Compliance</h3>
-                <p>The program operates under the assumption that users accessing sensitive information are legally entitled to do so. This prerequisite ensures compliance with privacy regulations and safeguards against unauthorized access or misuse of confidential data. Users must possess the necessary permissions and authorizations to view and modify sensitive information, thereby mitigating the risk of privacy breaches and legal liabilities.</p>
-              </div>
-            <br><br>
-            <h2>Functionality</h2>
-                         
-              <div class="section">
-                <h3>Command Line Program</h3>
-                <p>The functionality of this software primarily revolves around its command-line interface, making it accessible and efficient for users who are comfortable with terminal-based interactions. Users can execute various commands to initiate the desired operations, such as identifying specific types of sensitive information within data sets or packet captures.</p>
-              </div>
-              <br>
-                                        
-              <div class="section">
-                <h3>Data Identification and Filtering</h3>
-                <p>The program is adept at recognizing sensitive information such as IP addresses, email addresses, names, and student numbers. To minimize false positives, it employs sophisticated algorithms that consider not only the presence of keywords but also the context in which they appear. This involves examining punctuation and surrounding text to ensure accurate identification.</p>
-              </div>
-              <br>
-              
-              <div class="section">
-                <h3>System Awareness and Compatibility</h3>
-                <p>Understanding common Linux system commands and structures is crucial for reducing errors and enhancing the program's 
-                    compatibility across different environments. By leveraging knowledge of Linux systems, the software can navigate file
-                    systems, logs, and other unstructured data sources efficiently.</p>
-              </div>
-              <br>
-              
-              <div class="section">
-                <h3>Anonymization and Data Preservation</h3>
-                <p>An important aspect of the program is its ability to anonymize sensitive data while preserving the overall structure and 
-                    integrity of the original information. This process involves replacing identifiable elements with placeholders or randomized 
-                    values, ensuring compliance with privacy regulations without compromising data utility.</p>
-              </div>
-              <br>
-              
-              <div class="section">
-                <h3>Client-Server Architecture</h3>
-                <p>The software offers both client-server and offline modes, providing flexibility in how users interact with it. In client-server 
-                    mode, users can remotely access the program's functionality and synchronize changes securely over a network connection. 
-                    This architecture facilitates collaboration and centralized management of sensitive data across multiple devices or locations.</p>
-              </div>
-              <br>
-              
-              <div class="section">
-                <h3>Secure Communication</h3>
-                <p>To ensure data integrity and confidentiality, the program utilizes Secure Socket Layer (SSL) or Transport Layer Security (TLS) 
-                    protocols for communication between clients and servers. This encryption mechanism safeguards sensitive information during 
-                    transmission, mitigating the risk of interception or unauthorized access.</p>
-              </div>
-              <br>
-              
-              <div class="section">
-                <h3>User Interaction and Decision-Making</h3>
-                <p>In cases where the program encounters ambiguous or uncertain data, it presents these findings to the user for review and 
-                    decision-making. Users are empowered to determine whether to modify or preserve the identified information, providing a 
-                    layer of control and transparency in the anonymization process.</p>
-              </div>
-              <br>
-              
-              <div class="section">
-                <h3>Automated Synchronization and Efficiency</h3>
-                <p>To streamline the anonymization process, the program incorporates automated synchronization features specifically designed 
-                    for client-server mode. In this mode, user preferences and modifications are saved and synchronized seamlessly across multiple 
-                    devices over a secure connection. This minimizes the need for manual intervention and accelerates the overall deidentification 
-                    process. However, in offline mode, changes are saved exclusively to a local file without synchronization across devices. 
-                    This distinction ensures efficient data management while catering to different usage scenarios.</p>
-              </div>
-              
-
-            <br><br>
-            <h2>Project Outcome</h2>
-            <div class="section">
-                <h3>Effective Identification of Sensitive Information</h3>
-                <p>The program demonstrated satisfactory performance in identifying various types of sensitive information, such as IP addresses, emails, names, and student numbers, within unstructured data. It effectively balanced accuracy and false positives at acceptable levels, ensuring thorough data analysis while minimizing errors in identification.</p>
-              </div>
-              <br>
-              
-              <div class="section">
-                <h3>Thorough Data Analysis</h3>
-                <p>By delving into IP packet captures and employing detailed checks, the program ensured a comprehensive analysis of data, minimizing the risk of overlooking critical information.</p>
-              </div>
-              <br>
-              
-              <div class="section">
-                <h3>Minimization of False Positives</h3>
-                <p>Through awareness of system commands and meticulous filtering processes, the program effectively reduced false positives to maintain data accuracy and reliability.</p>
-              </div>
-              <br>
-              
-              <div class="section">
-                <h3>Robust Anonymization Techniques</h3>
-                <p>The program implemented robust anonymization methods while preserving the underlying data structure, ensuring compliance with privacy regulations without compromising data integrity.</p>
-              </div>
-              <br>
-              
-              <div class="section">
-                <h3>Flexible Deployment Options</h3>
-                <p>Offering both client-server and offline modes, the program provided users with flexibility in accessing and managing sensitive data according to their preferences and operational requirements.</p>
-              </div>
-              <br>
-              
-              <div class="section">
-                <h3>Secure Communication</h3>
-                <p>Utilizing Secure Socket Layer (SSL) communication, the program ensured secure transmission of data, safeguarding against unauthorized access and data breaches.</p>
-              </div>
-              <br>
-              
-              <div class="section">
-                <h3>Efficient Handling of Unstructured Data</h3>
-                <p>By managing unstructured data across various file systems and logs, the program demonstrated adaptability and efficiency in processing diverse data formats.</p>
-              </div>
-              <br>
-              
-              <div class="section">
-                <h3>User Empowerment and Decision-Making</h3>
-                <p>The program empowered users by presenting potentially ambiguous data for review and decision-making, allowing them to determine whether to modify or preserve identified information.</p>
-              </div>
-              <br>
-              
-              <div class="section">
-                <h3>Streamlined Workflow</h3>
-                <p>Through automated synchronization features and efficient data saving mechanisms, the program optimized workflow and minimized user intervention, enhancing overall productivity and efficiency.</p>
-              </div>
-              <br>
-              
-              <div class="section">
-                <h3>Enhanced Collaboration</h3>
-                <p>With synchronized changes facilitated in client-server mode, the program promoted collaboration and centralized management of sensitive data, facilitating seamless communication and decision-making processes.</p>
-              </div>
-              
-            <br>
-            <p  style="text-align: center;">copyright © 2024 Dean Rotondella all rights reserved</p>
-        </div>
-
-
-
-
-
-        <!-- USBScanner Project -->
-        <div id="usbScanner" style="display: none;">
-            <h1>USB Scanner</h1>
-            <h2>Overview</h2>
-            <table class="details_table">
-                <tr>
-                    <td style="width: 150px;">Project Started</td>
-                    <td>July 2023</td>
-                </tr>
-                <tr>
-                    <td>Project Ended</td>
-                    <td>July 2023</td>
-                </tr>  
-                <tr>
-                    <td>Platform</td>
-                    <td>Linux</td>
-                </tr> 
-                <tr>
-                    <td>Code</td>
-                    <td>Python</td>
-                </tr>            
-            </table> 
-            <br><br>
-            <h2>Functionality</h2>
-            <div class="section">
-                <h3>USBScanner Program Functionality</h3>
-                <p>The USBScanner program operates seamlessly in a command-line environment, where user interaction is minimal. 
-                    However, its outputs are readily visible throughout its execution.</p>
-            </div><br>
-            
-            <div class="section">
-                <h3>Initialization Process</h3>
-                <p>Upon its first execution, USBScanner automatically captures and stores information regarding all connected USB ports a
-                    nd devices. This initial setup phase occurs silently in the background, without necessitating any user input. 
-                    It establishes a comprehensive reference list of known USB devices for subsequent comparisons.</p>
-            </div><br>
-            
-            <div class="section">
-                <h3>Comparison with Known USB Devices</h3>
-                <p>During subsequent runs, USBScanner compares the current state of connected USB devices with the reference list generated
-                    during initialization. It efficiently identifies any new or unknown devices that were not present during the initial scan.</p>
-            </div><br>
-            
-            <div class="section">
-                <h3>Listing Unknown Devices</h3>
-                <p>USBScanner produces a detailed output, listing all unknown USB devices detected during the comparison process. Each entry 
-                    in the output includes essential information such as the Device ID, Name (if available), and Path/Bus details, enabling users 
-                    to easily identify devices. This capability was born out of the need to identify unknown devices' details as a part of a much larger
-                     project I cannot discuss.</p>
-            </div><br>            
-            
-            <div class="section">
-                <h3>Automatic Execution and Output</h3>
-                <p>As a standalone script, USBScanner operates autonomously, executing automatically without requiring any user interaction. 
-                    Throughout its execution, the program provides clear and concise output, visible in the command-line interface in real-time. 
-                    This allows users to monitor the process and review connected devices efficiently.</p>
+            <!-- Job Seeker Assistant Project -->
+            <div id="jobAssistant"  style="display: none;">
+                <h1>Job Seeker Assistant</h1>
+                <h2>Overview</h2>
+                <table class="details_table">
+                    <tr>
+                        <td style="width: 150px;">Project Started</td>
+                        <td>May 2024</td>
+                    </tr>
+                    <tr>
+                        <td>Project Ended</td>
+                        <td>in progress</td>
+                    </tr>  
+                    <tr>
+                        <td>Platform</td>
+                        <td>Android</td>
+                    </tr> 
+                    <tr>
+                        <td>Code</td>
+                        <td>Java</td>
+                    </tr>            
+                </table> 
+                <br><br>
+                <h2>Functionality</h2>
+                <br><br>
+                <h2>Interface Walkthrough</h2>
+                <br><br>
+                <h2>Project Outcome</h2>
+                <br>
+                <p  style="text-align: center;">copyright © 2024 Dean Rotondella all rights reserved</p>
             </div>
-            <br><br>
-            <h2>Project Outcome</h2>
-            <div class="section">
-                <h3>Streamlined Task Efficiency</h3>
-                <p>USBScanner transformed a time-consuming task, prone to human error, into a seamless
-                     process that now takes only seconds. By automating the identification of unknown USB devices and providing all necessary 
-                     details swiftly.</p>
-            </div>
-            
-            <br>
-            <p  style="text-align: center;">copyright © 2024 Dean Rotondella all rights reserved</p>
-        </div>
 
 
 
 
 
-        <!-- EVE Links Project -->
-        <div id="eveLinks" style="display: none;">
-            <h1>EVE Links</h1>
-            <h2>Overview</h2>
-            <table class="details_table">
-                <tr>
-                    <td style="width: 150px;">Project Started</td>
-                    <td>May 2023</td>
-                </tr>
-                <tr>
-                    <td>Project Ended</td>
-                    <td>June 2023</td>
-                </tr>  
-                <tr>
-                    <td>Platform</td>
-                    <td>Windows</td>
-                </tr> 
-                <tr>
-                    <td>Code</td>
-                    <td>C#</td>
-                </tr>            
-            </table>   
-            <br><br>
-            <h2>Functionality</h2>
-            <div class="section">
-                <h3>Thorough Testing</h3>
-                <p>Testing ensures stability and prevents crashes, crucial for maintaining responsiveness during critical moments. 
-                    Crashes are particularly detrimental as they slow down response times when rapid action is required.</p>
-            </div><br>
-            <div class="section">
-                <h3>Redundancy and Fail-Safes</h3>
-                <p>Multiple fail-safes and redundancy mechanisms are incorporated to enhance reliability and minimize the risk of failure,
-                     ensuring uninterrupted operation.</p>
-            </div><br>
-            <div class="section">
-                <h3>Space-Efficient Design</h3>
-                <p>The program is designed to occupy minimal screen space on a secondary display, ensuring quick access to essential features
-                     without clutter. This streamlined design optimizes user workflow and efficiency.</p>
-            </div><br>
-            <div class="section">
-                <h3>Utilization of Unit Testing in C#</h3>
-                <p>The program's development process includes unit testing in C#, a robust testing framework for C# applications. This systematic 
-                    testing approach validates individual components and contributes to overall reliability.</p>
-            </div><br>
-            <div class="section">
-                <h3>Emphasis on Efficiency and Speed</h3>
-                <p>The program prioritizes efficiency and speed in its design and functionality. While not necessarily the most memory-efficient, 
-                    it leverages a garbage collector during memory-intensive tasks to maintain performance levels. This focus on efficiency ensures 
-                    swift execution of tasks and enhances user productivity.</p>
-            </div>
-            <br><br>
-            <h2>Interface Walkthrough</h2>
-            <table>
-                <tr>
-                    <td>
-                        <figure>
-                            <img src="images/evelinks/main_screen.png" alt="Main Screen">
-                            <figcaption>Main Window</figcaption>
-                        </figure>
-                    </td>
-
-                    <td>
-                        <p>
-                            The main window of the application is divided into two scrollable displays, each presenting a list of entries containing descriptions 
-                            linked to their corresponding URLs. These entries are sorted alphabetically, with the sorting operation executed upon saving and the sorted 
-                            sequence preserved within the file.
-                        </p>
-                        <p>
-                            In the settings section, users can access various functionalities. Firstly, they can instantly copy an entry to the clipboard by clicking on it. 
-                            Additionally, if the "description is hyperlink" option is selected, the entry format changes to a clickable hyperlink, displaying both the description 
-                            and the URL. For example, if the user selects this option and clicks on an entry titled "EVE Academy - How to get into incursions," the format would 
-                            be <a href="https://www.eveonline.com/eve-academy/careers/enforcer/incursions">EVE Academy - How to get into incursions</a>. If this checkbox is not 
-                            selected, the entry format displays the raw URL only, such as <a href="https://www.eveonline.com/eve-academy/careers/enforcer/incursions">https://www.eveonline.com/eve-academy/careers/enforcer/incursions</a>. Another feature in 
-                            this section allows users to delete all data. Upon reloading the application, the file database will be populated with predefined entries.
-                        </p>                     
-                        <p>
-                            In the details section, users can view comprehensive information about the selected entry, including both the link and description. This section 
-                            also enables users to perform various actions such as editing, deletion, and addition of entries. Additionally, users can copy the entry to the 
-                            lipboard with a single click, eliminating the need to select it twice. Furthermore, the application facilitates the opening of the link associated 
-                            with the entry directly in the user's browser for further exploration.
-                        </p>       
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td>
-                        <figure>
-                            <img src="images/evelinks/search_example.png" alt="Search Example">
-                            <figcaption>Main Window - Entry Search</figcaption>
-                        </figure>
-                    </td>
-                    
-                    <td>
-                        <p>
-                            The search function in the main window provides a dynamic experience by updating the WPF tables in 
-                            real-time with each keystroke entered into the search field. The search is case insensitive, 
-                            ensuring that matches are found regardless of the letter case used in the search query.
-                        </p>
-                        <p>
-                            As the user types, the search function checks both the URL and description fields for matches. 
-                            This comprehensive search ensures that relevant results are displayed to the user, whether they're 
-                            searching for specific URLs or descriptions.
-                        </p>    
-                        <p>
-                            In addition to the search functionality, when an entry is clicked, the program provides additional information 
-                            indicating whether it's from a third party or not. This information is crucial given the context in which the 
-                            program is used. Even if the user enters something else in the search bar but doesn't click on a new entry,
-                            this feature ensures that they are informed about the source of the selected entry. This transparency helps 
-                            users make informed decisions and maintain awareness of the origin of the displayed content, enhancing the overall 
-                            usability and trustworthiness of the application.
-                        </p>
-                           
-                        <p>
-                            To maintain responsiveness and reduce lag, asynchronous threading is employed. This means that 
-                            the search operation is performed asynchronously in a separate thread, allowing the user interface 
-                            to remain smooth and responsive even during intensive search operations. By leveraging async threading, 
-                            the search function delivers a seamless user experience, providing quick and accurate results without sacrificing 
-                            performance.
-                        </p>
+            <!-- De-identifier Project -->
+            <div id="deident" style="display: none;">
+            <h1>De-identifier Project</h1>
+                <h2>Overview</h2>
+                <p>
+                    Developed collaboratively by a team of two developers.
+                </p>
+                <table class="details_table">
+                    <tr>
+                        <td style="width: 150px;">Project Started</td>
+                        <td>June 2023</td>
+                    </tr>
+                    <tr>
+                        <td>Project Ended</td>
+                        <td>July 2023</td>
+                    </tr>  
+                    <tr>
+                        <td>Platform</td>
+                        <td>Linux</td>
+                    </tr> 
+                    <tr>
+                        <td>Code</td>
+                        <td>Java</td>
+                    </tr>            
+                </table> 
+                <br>
+                <div class="section">
+                    <h3>User Authorization and Legal Compliance</h3>
+                    <p>The program operates under the assumption that users accessing sensitive information are legally entitled to do so. This prerequisite ensures compliance with privacy regulations and safeguards against unauthorized access or misuse of confidential data. Users must possess the necessary permissions and authorizations to view and modify sensitive information, thereby mitigating the risk of privacy breaches and legal liabilities.</p>
+                </div>
+                <br><br>
+                <h2>Functionality</h2>
                             
-                    </td>
-                </tr>
-            </table>  
-            <table>  
-                <tr>
-                    <td>
-                        <figure>
-                            <img src="images/evelinks/add_entry.png" alt="Add Entry">
-                            <figcaption>Add / Edit Entry Window</figcaption>
-                        </figure> 
-                    </td>
-                    
-                    <td>
-                        <p> 
-                            The add/edit entry window streamlines the process of adding or modifying entries in the database. 
-                            Depending on whether the window is in "add entry" or "edit entry" mode, the behavior differs. 
-                            In "add entry" mode, the fields are left empty, enabling users to input new data from scratch, 
-                            while in "edit entry" mode, the fields are pre-filled with existing data from the database, facilitating modifications to specific entries.
-                        </p>
-                        <p>
-                            Autofill is an option activated when the URL is from the game developer's affiliated websites, making data entry smoother by automatically 
-                            populating fields based on keywords in the URL. If a YouTube link was provided, a web scraper only operates during the final database saving to 
-                            confirm the channel's affiliation with the developer, resulting in a slight delay.
-                        </p>
-                        <p>
-                            After validating and ensuring all information is complete, the system saves or updates the entry. The data is then sorted, and the updated data
-                             is saved to maintain database organization and integrity.
-                        </p>
-                    </td>
-                </tr>
-            
-            </table>  
-            <table>  
-                <tr>
-                    <td>
-                        <figure>
-                            <img src="images/evelinks/delete_prompt.png" alt="Delete Prompt">
-                            <figcaption>Delete Prompt</figcaption>
-                        </figure>
+                <div class="section">
+                    <h3>Command Line Program</h3>
+                    <p>The functionality of this software primarily revolves around its command-line interface, making it accessible and efficient for users who are comfortable with terminal-based interactions. Users can execute various commands to initiate the desired operations, such as identifying specific types of sensitive information within data sets or packet captures.</p>
+                </div>
+                <br>
+                                            
+                <div class="section">
+                    <h3>Data Identification and Filtering</h3>
+                    <p>The program is adept at recognizing sensitive information such as IP addresses, email addresses, names, and student numbers. To minimize false positives, it employs sophisticated algorithms that consider not only the presence of keywords but also the context in which they appear. This involves examining punctuation and surrounding text to ensure accurate identification.</p>
+                </div>
+                <br>
+                
+                <div class="section">
+                    <h3>System Awareness and Compatibility</h3>
+                    <p>Understanding common Linux system commands and structures is crucial for reducing errors and enhancing the program's 
+                        compatibility across different environments. By leveraging knowledge of Linux systems, the software can navigate file
+                        systems, logs, and other unstructured data sources efficiently.</p>
+                </div>
+                <br>
+                
+                <div class="section">
+                    <h3>Anonymization and Data Preservation</h3>
+                    <p>An important aspect of the program is its ability to anonymize sensitive data while preserving the overall structure and 
+                        integrity of the original information. This process involves replacing identifiable elements with placeholders or randomized 
+                        values, ensuring compliance with privacy regulations without compromising data utility.</p>
+                </div>
+                <br>
+                
+                <div class="section">
+                    <h3>Client-Server Architecture</h3>
+                    <p>The software offers both client-server and offline modes, providing flexibility in how users interact with it. In client-server 
+                        mode, users can remotely access the program's functionality and synchronize changes securely over a network connection. 
+                        This architecture facilitates collaboration and centralized management of sensitive data across multiple devices or locations.</p>
+                </div>
+                <br>
+                
+                <div class="section">
+                    <h3>Secure Communication</h3>
+                    <p>To ensure data integrity and confidentiality, the program utilizes Secure Socket Layer (SSL) or Transport Layer Security (TLS) 
+                        protocols for communication between clients and servers. This encryption mechanism safeguards sensitive information during 
+                        transmission, mitigating the risk of interception or unauthorized access.</p>
+                </div>
+                <br>
+                
+                <div class="section">
+                    <h3>User Interaction and Decision-Making</h3>
+                    <p>In cases where the program encounters ambiguous or uncertain data, it presents these findings to the user for review and 
+                        decision-making. Users are empowered to determine whether to modify or preserve the identified information, providing a 
+                        layer of control and transparency in the anonymization process.</p>
+                </div>
+                <br>
+                
+                <div class="section">
+                    <h3>Automated Synchronization and Efficiency</h3>
+                    <p>To streamline the anonymization process, the program incorporates automated synchronization features specifically designed 
+                        for client-server mode. In this mode, user preferences and modifications are saved and synchronized seamlessly across multiple 
+                        devices over a secure connection. This minimizes the need for manual intervention and accelerates the overall deidentification 
+                        process. However, in offline mode, changes are saved exclusively to a local file without synchronization across devices. 
+                        This distinction ensures efficient data management while catering to different usage scenarios.</p>
+                </div>
+                
 
-                    </td>
-                    
-                    <td>
-                        <p>The delete prompt acts as a safety measure to prevent accidental deletions. It prompts users to confirm their deletion action,
-                             reducing the risk of unintentional data loss by providing an extra layer of defense against mistakes.</p>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>
-                        <figure>
-                            <img src="images/evelinks/visit_website_prompt.png" alt="Visit Link Prompt">
-                            <figcaption>Visit Link Prompt</figcaption>
-                        </figure>
-
-                    </td>
-                    
-                    <td>
-                        <p>The "Visit link" prompt offers users the option to navigate to external websites. If users choose to proceed, 
-                            the prompt effectively warns them before opening the link in a web browser, ensuring they are aware of the action.
-                             This preemptive warning prevents the surprise of a web browser page suddenly opening, providing a smoother and more
-                              controlled browsing experience for users.</p>
-                    </td>
-                </tr>
-
-            </table>                   
-
-            <br><br>
-            <h2>Project Outcome</h2>
-            <div class="section">
-                <h3>Enhanced Access with EVE Links</h3>
-                <p>EVE Links aimed to streamline access to a plethora of valuable resources within the EVE Online universe. Offering a faster alternative to 
-                    manually searching through notebooks for links, EVE Links provided quicker and easier access to essential information, improving efficiency
-                    in assisting fellow players and aiding in volunteering efforts within the game.</p>
-            </div><br>
-            
-            <div class="section">
-                <h3>Efficient Keyword Search</h3>
-                <p>With EVE Links' case-insensitive search function, users could input keywords to swiftly locate relevant information without the need for 
-                    precise typing. This feature facilitated quicker assistance and information retrieval, empowering players to find what they needed promptly, 
-                    whether it was ship fittings, market trends, or mission guides, thereby aiding in their volunteering tasks within the game.</p>
-            </div><br>
-            
-            <div class="section">
-                <h3>Reliable Performance Under Load</h3>
-                <p>EVE Links was engineered to maintain stability and responsiveness even under heavy usage or prolonged periods of inactivity followed by sudden 
-                    intensive usage. This ensured that users could rely on the tool whenever they needed it, without worrying about slowdowns or interruptions to 
-                    their volunteering efforts within the game.</p>
-            </div><br>
-            
-            <div class="section">
-                <h3>Limited Adoption Despite Offer</h3>
-                <p>Despite being offered to others, EVE Links was ultimately not adopted by the wider EVE Online community, who preferred to stick with their 
-                    existing system. Despite the lack of wider adoption, EVE Links effectively served its intended purpose of providing quick access to valuable links and enhancing efforts
-                    within to help others in EVE Online.</p>
+                <br><br>
+                <h2>Project Outcome</h2>
+                <div class="section">
+                    <h3>Effective Identification of Sensitive Information</h3>
+                    <p>The program demonstrated satisfactory performance in identifying various types of sensitive information, such as IP addresses, emails, names, and student numbers, within unstructured data. It effectively balanced accuracy and false positives at acceptable levels, ensuring thorough data analysis while minimizing errors in identification.</p>
+                </div>
+                <br>
+                
+                <div class="section">
+                    <h3>Thorough Data Analysis</h3>
+                    <p>By delving into IP packet captures and employing detailed checks, the program ensured a comprehensive analysis of data, minimizing the risk of overlooking critical information.</p>
+                </div>
+                <br>
+                
+                <div class="section">
+                    <h3>Minimization of False Positives</h3>
+                    <p>Through awareness of system commands and meticulous filtering processes, the program effectively reduced false positives to maintain data accuracy and reliability.</p>
+                </div>
+                <br>
+                
+                <div class="section">
+                    <h3>Robust Anonymization Techniques</h3>
+                    <p>The program implemented robust anonymization methods while preserving the underlying data structure, ensuring compliance with privacy regulations without compromising data integrity.</p>
+                </div>
+                <br>
+                
+                <div class="section">
+                    <h3>Flexible Deployment Options</h3>
+                    <p>Offering both client-server and offline modes, the program provided users with flexibility in accessing and managing sensitive data according to their preferences and operational requirements.</p>
+                </div>
+                <br>
+                
+                <div class="section">
+                    <h3>Secure Communication</h3>
+                    <p>Utilizing Secure Socket Layer (SSL) communication, the program ensured secure transmission of data, safeguarding against unauthorized access and data breaches.</p>
+                </div>
+                <br>
+                
+                <div class="section">
+                    <h3>Efficient Handling of Unstructured Data</h3>
+                    <p>By managing unstructured data across various file systems and logs, the program demonstrated adaptability and efficiency in processing diverse data formats.</p>
+                </div>
+                <br>
+                
+                <div class="section">
+                    <h3>User Empowerment and Decision-Making</h3>
+                    <p>The program empowered users by presenting potentially ambiguous data for review and decision-making, allowing them to determine whether to modify or preserve identified information.</p>
+                </div>
+                <br>
+                
+                <div class="section">
+                    <h3>Streamlined Workflow</h3>
+                    <p>Through automated synchronization features and efficient data saving mechanisms, the program optimized workflow and minimized user intervention, enhancing overall productivity and efficiency.</p>
+                </div>
+                <br>
+                
+                <div class="section">
+                    <h3>Enhanced Collaboration</h3>
+                    <p>With synchronized changes facilitated in client-server mode, the program promoted collaboration and centralized management of sensitive data, facilitating seamless communication and decision-making processes.</p>
+                </div>
+                
+                <br>
+                <p  style="text-align: center;">copyright © 2024 Dean Rotondella all rights reserved</p>
             </div>
-            
-            <br>
-            <p style="text-align: center;">copyright © 2024 Dean Rotondella all rights reserved</p>
-        </div>
 
 
 
 
 
-
-        <!-- BoatTracker Project -->
-        <div id="boatTracker" style="display: none;">
-            <h1>BoatTracker</h1>
-            <h2>Overview</h2>
-            <table class="details_table">
-                <tr>
-                    <td style="width: 150px;">Project Started</td>
-                    <td>July 2018</td>
-                </tr>
-                <tr>
-                    <td>Project Ended</td>
-                    <td>June 2021</td>
-                </tr>  
-                <tr>
-                    <td>Platform</td>
-                    <td>Android</td>
-                </tr> 
-                <tr>
-                    <td>Code</td>
-                    <td>Java</td>
-                </tr>            
-            </table>
-
-            <br><br>
-            <h2>Functionality</h2>
-            <div class="section">
-                <h3>Efficient Racer Addition</h3>
-                <p>BoatTracker simplified the process of adding racers, ensuring swift entry of participant details into the system. 
-                    This streamlined workflow optimized the checkpoint operation.</p>
-            </div><br>
-            
-            <div class="section">
-                <h3>Quick Racer Details Search</h3>
-                <p>With BoatTracker, the user could rapidly search for racer details using assigned numbers, facilitating 
-                    immediate access to relevant information. This feature expedited decision-making at the checkpoint.</p>
-            </div><br>
-            
-            <div class="section">
-                <h3>Flexible Entry Editing</h3>
-                <p>BoatTracker allowed for the editing of previously saved entries, offering flexibility to rectify mistakes without causing disruptions. 
-                    This capability was vital in maintaining accuracy during hectic periods at the checkpoint.</p>
-            </div><br>
-            
-            <div class="section">
-                <h3>Reliable Redundancy</h3>
-                <p>Designed with redundancy in mind, Boatracker minimized the risk of crashes and errors. It ensured accurate inputs while permitting necessary edits, 
-                    thereby maintaining operational continuity at the checkpoint.</p>
-            </div><br>
-            
-            <div class="section">
-                <h3>Optimized Display</h3>
-                <p>BoatTracker's high-contrast and simplistic display design ensured readability even in outdoor environments. This user-centric approach
-                    improved usability and minimized errors during data entry.</p>
+            <!-- USBScanner Project -->
+            <div id="usbScanner" style="display: none;">
+                <h1>USB Scanner</h1>
+                <h2>Overview</h2>
+                <table class="details_table">
+                    <tr>
+                        <td style="width: 150px;">Project Started</td>
+                        <td>July 2023</td>
+                    </tr>
+                    <tr>
+                        <td>Project Ended</td>
+                        <td>July 2023</td>
+                    </tr>  
+                    <tr>
+                        <td>Platform</td>
+                        <td>Linux</td>
+                    </tr> 
+                    <tr>
+                        <td>Code</td>
+                        <td>Python</td>
+                    </tr>            
+                </table> 
+                <br><br>
+                <h2>Functionality</h2>
+                <div class="section">
+                    <h3>USBScanner Program Functionality</h3>
+                    <p>The USBScanner program operates seamlessly in a command-line environment, where user interaction is minimal. 
+                        However, its outputs are readily visible throughout its execution.</p>
+                </div><br>
+                
+                <div class="section">
+                    <h3>Initialization Process</h3>
+                    <p>Upon its first execution, USBScanner automatically captures and stores information regarding all connected USB ports a
+                        nd devices. This initial setup phase occurs silently in the background, without necessitating any user input. 
+                        It establishes a comprehensive reference list of known USB devices for subsequent comparisons.</p>
+                </div><br>
+                
+                <div class="section">
+                    <h3>Comparison with Known USB Devices</h3>
+                    <p>During subsequent runs, USBScanner compares the current state of connected USB devices with the reference list generated
+                        during initialization. It efficiently identifies any new or unknown devices that were not present during the initial scan.</p>
+                </div><br>
+                
+                <div class="section">
+                    <h3>Listing Unknown Devices</h3>
+                    <p>USBScanner produces a detailed output, listing all unknown USB devices detected during the comparison process. Each entry 
+                        in the output includes essential information such as the Device ID, Name (if available), and Path/Bus details, enabling users 
+                        to easily identify devices. This capability was born out of the need to identify unknown devices' details as a part of a much larger
+                        project I cannot discuss.</p>
+                </div><br>            
+                
+                <div class="section">
+                    <h3>Automatic Execution and Output</h3>
+                    <p>As a standalone script, USBScanner operates autonomously, executing automatically without requiring any user interaction. 
+                        Throughout its execution, the program provides clear and concise output, visible in the command-line interface in real-time. 
+                        This allows users to monitor the process and review connected devices efficiently.</p>
+                </div>
+                <br><br>
+                <h2>Project Outcome</h2>
+                <div class="section">
+                    <h3>Streamlined Task Efficiency</h3>
+                    <p>USBScanner transformed a time-consuming task, prone to human error, into a seamless
+                        process that now takes only seconds. By automating the identification of unknown USB devices and providing all necessary 
+                        details swiftly.</p>
+                </div>
+                
+                <br>
+                <p  style="text-align: center;">copyright © 2024 Dean Rotondella all rights reserved</p>
             </div>
-            
-            
-            <br><br>
-            <h2>Project Outcome</h2>
-            <div class="section">
-                <h3>Checkpoint Efficiency</h3>
-                <p>BoatTracker significantly enhanced efficiency at the checkpoint by streamlining racer tracking processes. 
-                    It facilitated quicker access to racer details, reducing waiting times and improving overall workflow efficiency.</p>
-            </div><br>
-            
-            <div class="section">
-                <h3>Real-time Tracking Benefits</h3>
-                <p>BoatTracker provided real-time passing times of boats, eliminating the need for manual tracking methods. Although its impact was confined 
-                    to the checkpoint, this feature fostered improved communication and coordination within the checkpoint team.</p>
-            </div><br>
-            
-            <div class="section">
-                <h3>Enhanced Accuracy</h3>
-                <p>By providing more accurate and reliable tracking data, Boatracker contributed to improved decision-making and record-keeping at the checkpoint. 
-                    Its precise data ensured that the checkpoint personnel had reliable information at their fingertips.</p>
-            </div>          
-            
-            <br>
-            <p  style="text-align: center;">copyright © 2024 Dean Rotondella all rights reserved</p>
 
+
+
+
+
+            <!-- EVE Links Project -->
+            <div id="eveLinks" style="display: none;">
+                <h1>EVE Links</h1>
+                <h2>Overview</h2>
+                <table class="details_table">
+                    <tr>
+                        <td style="width: 150px;">Project Started</td>
+                        <td>May 2023</td>
+                    </tr>
+                    <tr>
+                        <td>Project Ended</td>
+                        <td>June 2023</td>
+                    </tr>  
+                    <tr>
+                        <td>Platform</td>
+                        <td>Windows</td>
+                    </tr> 
+                    <tr>
+                        <td>Code</td>
+                        <td>C#</td>
+                    </tr>            
+                </table>   
+                <br><br>
+                <h2>Functionality</h2>
+                <div class="section">
+                    <h3>Thorough Testing</h3>
+                    <p>Testing ensures stability and prevents crashes, crucial for maintaining responsiveness during critical moments. 
+                        Crashes are particularly detrimental as they slow down response times when rapid action is required.</p>
+                </div><br>
+                <div class="section">
+                    <h3>Redundancy and Fail-Safes</h3>
+                    <p>Multiple fail-safes and redundancy mechanisms are incorporated to enhance reliability and minimize the risk of failure,
+                        ensuring uninterrupted operation.</p>
+                </div><br>
+                <div class="section">
+                    <h3>Space-Efficient Design</h3>
+                    <p>The program is designed to occupy minimal screen space on a secondary display, ensuring quick access to essential features
+                        without clutter. This streamlined design optimizes user workflow and efficiency.</p>
+                </div><br>
+                <div class="section">
+                    <h3>Utilization of Unit Testing in C#</h3>
+                    <p>The program's development process includes unit testing in C#, a robust testing framework for C# applications. This systematic 
+                        testing approach validates individual components and contributes to overall reliability.</p>
+                </div><br>
+                <div class="section">
+                    <h3>Emphasis on Efficiency and Speed</h3>
+                    <p>The program prioritizes efficiency and speed in its design and functionality. While not necessarily the most memory-efficient, 
+                        it leverages a garbage collector during memory-intensive tasks to maintain performance levels. This focus on efficiency ensures 
+                        swift execution of tasks and enhances user productivity.</p>
+                </div>
+                <br><br>
+                <h2>Interface Walkthrough</h2>
+                <table>
+                    <tr>
+                        <td>
+                            <figure>
+                                <img src="images/evelinks/main_screen.png" alt="Main Screen">
+                                <figcaption>Main Window</figcaption>
+                            </figure>
+                        </td>
+
+                        <td>
+                            <p>
+                                The main window of the application is divided into two scrollable displays, each presenting a list of entries containing descriptions 
+                                linked to their corresponding URLs. These entries are sorted alphabetically, with the sorting operation executed upon saving and the sorted 
+                                sequence preserved within the file.
+                            </p>
+                            <p>
+                                In the settings section, users can access various functionalities. Firstly, they can instantly copy an entry to the clipboard by clicking on it. 
+                                Additionally, if the "description is hyperlink" option is selected, the entry format changes to a clickable hyperlink, displaying both the description 
+                                and the URL. For example, if the user selects this option and clicks on an entry titled "EVE Academy - How to get into incursions," the format would 
+                                be <a href="https://www.eveonline.com/eve-academy/careers/enforcer/incursions">EVE Academy - How to get into incursions</a>. If this checkbox is not 
+                                selected, the entry format displays the raw URL only, such as <a href="https://www.eveonline.com/eve-academy/careers/enforcer/incursions">https://www.eveonline.com/eve-academy/careers/enforcer/incursions</a>. Another feature in 
+                                this section allows users to delete all data. Upon reloading the application, the file database will be populated with predefined entries.
+                            </p>                     
+                            <p>
+                                In the details section, users can view comprehensive information about the selected entry, including both the link and description. This section 
+                                also enables users to perform various actions such as editing, deletion, and addition of entries. Additionally, users can copy the entry to the 
+                                lipboard with a single click, eliminating the need to select it twice. Furthermore, the application facilitates the opening of the link associated 
+                                with the entry directly in the user's browser for further exploration.
+                            </p>       
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <figure>
+                                <img src="images/evelinks/search_example.png" alt="Search Example">
+                                <figcaption>Main Window - Entry Search</figcaption>
+                            </figure>
+                        </td>
+                        
+                        <td>
+                            <p>
+                                The search function in the main window provides a dynamic experience by updating the WPF tables in 
+                                real-time with each keystroke entered into the search field. The search is case insensitive, 
+                                ensuring that matches are found regardless of the letter case used in the search query.
+                            </p>
+                            <p>
+                                As the user types, the search function checks both the URL and description fields for matches. 
+                                This comprehensive search ensures that relevant results are displayed to the user, whether they're 
+                                searching for specific URLs or descriptions.
+                            </p>    
+                            <p>
+                                In addition to the search functionality, when an entry is clicked, the program provides additional information 
+                                indicating whether it's from a third party or not. This information is crucial given the context in which the 
+                                program is used. Even if the user enters something else in the search bar but doesn't click on a new entry,
+                                this feature ensures that they are informed about the source of the selected entry. This transparency helps 
+                                users make informed decisions and maintain awareness of the origin of the displayed content, enhancing the overall 
+                                usability and trustworthiness of the application.
+                            </p>
+                            
+                            <p>
+                                To maintain responsiveness and reduce lag, asynchronous threading is employed. This means that 
+                                the search operation is performed asynchronously in a separate thread, allowing the user interface 
+                                to remain smooth and responsive even during intensive search operations. By leveraging async threading, 
+                                the search function delivers a seamless user experience, providing quick and accurate results without sacrificing 
+                                performance.
+                            </p>
+                                
+                        </td>
+                    </tr>
+                </table>  
+                <table>  
+                    <tr>
+                        <td>
+                            <figure>
+                                <img src="images/evelinks/add_entry.png" alt="Add Entry">
+                                <figcaption>Add / Edit Entry Window</figcaption>
+                            </figure> 
+                        </td>
+                        
+                        <td>
+                            <p> 
+                                The add/edit entry window streamlines the process of adding or modifying entries in the database. 
+                                Depending on whether the window is in "add entry" or "edit entry" mode, the behavior differs. 
+                                In "add entry" mode, the fields are left empty, enabling users to input new data from scratch, 
+                                while in "edit entry" mode, the fields are pre-filled with existing data from the database, facilitating modifications to specific entries.
+                            </p>
+                            <p>
+                                Autofill is an option activated when the URL is from the game developer's affiliated websites, making data entry smoother by automatically 
+                                populating fields based on keywords in the URL. If a YouTube link was provided, a web scraper only operates during the final database saving to 
+                                confirm the channel's affiliation with the developer, resulting in a slight delay.
+                            </p>
+                            <p>
+                                After validating and ensuring all information is complete, the system saves or updates the entry. The data is then sorted, and the updated data
+                                is saved to maintain database organization and integrity.
+                            </p>
+                        </td>
+                    </tr>
+                
+                </table>  
+                <table>  
+                    <tr>
+                        <td>
+                            <figure>
+                                <img src="images/evelinks/delete_prompt.png" alt="Delete Prompt">
+                                <figcaption>Delete Prompt</figcaption>
+                            </figure>
+
+                        </td>
+                        
+                        <td>
+                            <p>The delete prompt acts as a safety measure to prevent accidental deletions. It prompts users to confirm their deletion action,
+                                reducing the risk of unintentional data loss by providing an extra layer of defense against mistakes.</p>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <figure>
+                                <img src="images/evelinks/visit_website_prompt.png" alt="Visit Link Prompt">
+                                <figcaption>Visit Link Prompt</figcaption>
+                            </figure>
+
+                        </td>
+                        
+                        <td>
+                            <p>The "Visit link" prompt offers users the option to navigate to external websites. If users choose to proceed, 
+                                the prompt effectively warns them before opening the link in a web browser, ensuring they are aware of the action.
+                                This preemptive warning prevents the surprise of a web browser page suddenly opening, providing a smoother and more
+                                controlled browsing experience for users.</p>
+                        </td>
+                    </tr>
+
+                </table>                   
+
+                <br><br>
+                <h2>Project Outcome</h2>
+                <div class="section">
+                    <h3>Enhanced Access with EVE Links</h3>
+                    <p>EVE Links aimed to streamline access to a plethora of valuable resources within the EVE Online universe. Offering a faster alternative to 
+                        manually searching through notebooks for links, EVE Links provided quicker and easier access to essential information, improving efficiency
+                        in assisting fellow players and aiding in volunteering efforts within the game.</p>
+                </div><br>
+                
+                <div class="section">
+                    <h3>Efficient Keyword Search</h3>
+                    <p>With EVE Links' case-insensitive search function, users could input keywords to swiftly locate relevant information without the need for 
+                        precise typing. This feature facilitated quicker assistance and information retrieval, empowering players to find what they needed promptly, 
+                        whether it was ship fittings, market trends, or mission guides, thereby aiding in their volunteering tasks within the game.</p>
+                </div><br>
+                
+                <div class="section">
+                    <h3>Reliable Performance Under Load</h3>
+                    <p>EVE Links was engineered to maintain stability and responsiveness even under heavy usage or prolonged periods of inactivity followed by sudden 
+                        intensive usage. This ensured that users could rely on the tool whenever they needed it, without worrying about slowdowns or interruptions to 
+                        their volunteering efforts within the game.</p>
+                </div><br>
+                
+                <div class="section">
+                    <h3>Limited Adoption Despite Offer</h3>
+                    <p>Despite being offered to others, EVE Links was ultimately not adopted by the wider EVE Online community, who preferred to stick with their 
+                        existing system. Despite the lack of wider adoption, EVE Links effectively served its intended purpose of providing quick access to valuable links and enhancing efforts
+                        within to help others in EVE Online.</p>
+                </div>
+                
+                <br>
+                <p style="text-align: center;">copyright © 2024 Dean Rotondella all rights reserved</p>
+            </div>
+
+
+
+
+
+
+            <!-- BoatTracker Project -->
+            <div id="boatTracker" style="display: none;">
+                <h1>BoatTracker</h1>
+                <h2>Overview</h2>
+                <table class="details_table">
+                    <tr>
+                        <td style="width: 150px;">Project Started</td>
+                        <td>July 2018</td>
+                    </tr>
+                    <tr>
+                        <td>Project Ended</td>
+                        <td>June 2021</td>
+                    </tr>  
+                    <tr>
+                        <td>Platform</td>
+                        <td>Android</td>
+                    </tr> 
+                    <tr>
+                        <td>Code</td>
+                        <td>Java</td>
+                    </tr>            
+                </table>
+
+                <br><br>
+                <h2>Functionality</h2>
+                <div class="section">
+                    <h3>Efficient Racer Addition</h3>
+                    <p>BoatTracker simplified the process of adding racers, ensuring swift entry of participant details into the system. 
+                        This streamlined workflow optimized the checkpoint operation.</p>
+                </div><br>
+                
+                <div class="section">
+                    <h3>Quick Racer Details Search</h3>
+                    <p>With BoatTracker, the user could rapidly search for racer details using assigned numbers, facilitating 
+                        immediate access to relevant information. This feature expedited decision-making at the checkpoint.</p>
+                </div><br>
+                
+                <div class="section">
+                    <h3>Flexible Entry Editing</h3>
+                    <p>BoatTracker allowed for the editing of previously saved entries, offering flexibility to rectify mistakes without causing disruptions. 
+                        This capability was vital in maintaining accuracy during hectic periods at the checkpoint.</p>
+                </div><br>
+                
+                <div class="section">
+                    <h3>Reliable Redundancy</h3>
+                    <p>Designed with redundancy in mind, Boatracker minimized the risk of crashes and errors. It ensured accurate inputs while permitting necessary edits, 
+                        thereby maintaining operational continuity at the checkpoint.</p>
+                </div><br>
+                
+                <div class="section">
+                    <h3>Optimized Display</h3>
+                    <p>BoatTracker's high-contrast and simplistic display design ensured readability even in outdoor environments. This user-centric approach
+                        improved usability and minimized errors during data entry.</p>
+                </div>
+                
+                
+                <br><br>
+                <h2>Project Outcome</h2>
+                <div class="section">
+                    <h3>Checkpoint Efficiency</h3>
+                    <p>BoatTracker significantly enhanced efficiency at the checkpoint by streamlining racer tracking processes. 
+                        It facilitated quicker access to racer details, reducing waiting times and improving overall workflow efficiency.</p>
+                </div><br>
+                
+                <div class="section">
+                    <h3>Real-time Tracking Benefits</h3>
+                    <p>BoatTracker provided real-time passing times of boats, eliminating the need for manual tracking methods. Although its impact was confined 
+                        to the checkpoint, this feature fostered improved communication and coordination within the checkpoint team.</p>
+                </div><br>
+                
+                <div class="section">
+                    <h3>Enhanced Accuracy</h3>
+                    <p>By providing more accurate and reliable tracking data, Boatracker contributed to improved decision-making and record-keeping at the checkpoint. 
+                        Its precise data ensured that the checkpoint personnel had reliable information at their fingertips.</p>
+                </div>          
+                
+                <br>
+                <p  style="text-align: center;">copyright © 2024 Dean Rotondella all rights reserved</p>
+
+            </div>
         </div>
     </div>
 </body>
