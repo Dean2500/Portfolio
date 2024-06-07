@@ -1,5 +1,6 @@
 /*
-    Code for main side bar menu
+    Code for main side bar menu 
+    and the side about me display
 */
 #sidebar {
     width: 200px;
@@ -21,21 +22,12 @@
 #sidebar ul li {
     padding: 10px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 #sidebar ul li:hover {
-    background-color: #292929;
+    background: linear-gradient(to right,#000, #1A1A1A,#292929); /* Gradient from dark gray to light gray on hover */
     color: #fff;
-}
-
-/*
-    Code for main area the contents stored 
-*/
-#main {
-    position: absolute;
-    left: 480px; 
-    width: fit-content;
-    margin-right: 30px;
 }
 
 #contact_div {
@@ -49,6 +41,17 @@
 
 #contact_div img {
     display: inline-block;
+}
+
+
+/*
+    Code for main area the contents stored 
+*/
+#main {
+    position: absolute;
+    left: 480px; 
+    width: fit-content;
+    margin-right: 30px;
 }
 
 body {
