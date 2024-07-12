@@ -22,28 +22,11 @@
             </ul>
         </div>
 
-        <!---
-            To add more 
-            <div id="name">
-                <h1>Job Seeker Assistant</h1>
-                <h2>Overview</h2>
-                <br><br>
-                <h2>Functionality</h2>
-                <br><br>
-                <h2>Project Outcome</h2>
-                <br>
-                <p  style="text-align: center;">copyright © 2024 Dean Rotondella all rights reserved</p>
-            </div 
-
-            <li onclick="changeContent('name')">My Project</li>
-
-            the script should not need to be changed as it should get the top one by default now
-        -->
 
         <div id="contact_div">
             <h2>Dean Rotondella</h2>
                 <h3>Software Engineer</h3>
-                <p>I'm a passionate software engineer with expertise in various programming languages and technologies. (more detail)</p>
+                <p>I'm a passionate software engineer with expertise in various programming languages and technologies.</p>
                 <h4 style="margin-top: 50px;">Contact</h4>
                 <!-- Contact links -->
                 <a href="www.linkedin.com/in/dean-rotondella-94a939207"><img src="images/logos/linkedin_icon.png" width="40" height="40" alt="linkedin"></a>
@@ -55,6 +38,74 @@
 
         <div id="main">
             <!-- Insert completed projects below here -->
+
+            <!-- USBScanner Project -->
+            <div id="usbScanner" style="display: none;">
+                <h1>USB Scanner</h1>
+                <h2>Overview</h2>
+                <table class="details_table">
+                    <tr>
+                        <td style="width: 150px;">Project Started</td>
+                        <td>July 2023</td>
+                    </tr>
+                    <tr>
+                        <td>Project Ended</td>
+                        <td>July 2023</td>
+                    </tr>  
+                    <tr>
+                        <td>Platform</td>
+                        <td>Linux</td>
+                    </tr> 
+                    <tr>
+                        <td>Code</td>
+                        <td>Python</td>
+                    </tr>            
+                </table> 
+                <br><br>
+                <h2>Functionality</h2>
+                <div class="section">
+                    <h3>USBScanner Program Functionality</h3>
+                    <p>The USBScanner program operates seamlessly in a command-line environment, where user interaction is minimal. 
+                        However, its outputs are readily visible throughout its execution.</p>
+                </div><br>
+                
+                <div class="section">
+                    <h3>Initialization Process</h3>
+                    <p>Upon its first execution, USBScanner automatically captures and stores information regarding all connected USB ports a
+                        nd devices. This initial setup phase occurs silently in the background, without necessitating any user input. 
+                        It establishes a comprehensive reference list of known USB devices for subsequent comparisons.</p>
+                </div><br>
+                
+                <div class="section">
+                    <h3>Comparison with Known USB Devices</h3>
+                    <p>During subsequent runs, USBScanner compares the current state of connected USB devices with the reference list generated
+                        during initialization. It efficiently identifies any new or unknown devices that were not present during the initial scan.</p>
+                </div><br>
+                
+                <div class="section">
+                    <h3>Listing Unknown Devices</h3>
+                    <p>USBScanner produces a detailed output, listing all unknown USB devices detected during the comparison process. Each entry 
+                        in the output includes essential information such as the Device ID, Name (if available), and Path/Bus details, enabling users 
+                        to easily identify devices. This capability was born out of the need to identify unknown devices' details as a part of a much larger
+                        project I cannot discuss.</p>
+                </div><br>            
+                
+                <div class="section">
+                    <h3>Automatic Execution and Output</h3>
+                    <p>As a standalone script, USBScanner operates autonomously, executing automatically without requiring any user interaction. 
+                        Throughout its execution, the program provides clear and concise output, visible in the command-line interface in real-time. 
+                        This allows users to monitor the process and review connected devices efficiently.</p>
+                </div>
+                <br><br>
+                <h2>Project Outcome</h2>
+                <div class="section">
+                    <h3>Streamlined Task Efficiency</h3>
+                    <p>USBScanner transformed a time-consuming task, prone to human error, into a seamless
+                        process that now takes only seconds. By automating the identification of unknown USB devices and providing all necessary 
+                        details swiftly.</p>
+                </div>
+                
+            </div>
 
             <!-- De-identifier Project -->
             <div id="deident" style="display: none;">
@@ -213,81 +264,6 @@
                 </div>
                 
             </div>
-
-
-
-
-
-            <!-- USBScanner Project -->
-            <div id="usbScanner" style="display: none;">
-                <h1>USB Scanner</h1>
-                <h2>Overview</h2>
-                <table class="details_table">
-                    <tr>
-                        <td style="width: 150px;">Project Started</td>
-                        <td>July 2023</td>
-                    </tr>
-                    <tr>
-                        <td>Project Ended</td>
-                        <td>July 2023</td>
-                    </tr>  
-                    <tr>
-                        <td>Platform</td>
-                        <td>Linux</td>
-                    </tr> 
-                    <tr>
-                        <td>Code</td>
-                        <td>Python</td>
-                    </tr>            
-                </table> 
-                <br><br>
-                <h2>Functionality</h2>
-                <div class="section">
-                    <h3>USBScanner Program Functionality</h3>
-                    <p>The USBScanner program operates seamlessly in a command-line environment, where user interaction is minimal. 
-                        However, its outputs are readily visible throughout its execution.</p>
-                </div><br>
-                
-                <div class="section">
-                    <h3>Initialization Process</h3>
-                    <p>Upon its first execution, USBScanner automatically captures and stores information regarding all connected USB ports a
-                        nd devices. This initial setup phase occurs silently in the background, without necessitating any user input. 
-                        It establishes a comprehensive reference list of known USB devices for subsequent comparisons.</p>
-                </div><br>
-                
-                <div class="section">
-                    <h3>Comparison with Known USB Devices</h3>
-                    <p>During subsequent runs, USBScanner compares the current state of connected USB devices with the reference list generated
-                        during initialization. It efficiently identifies any new or unknown devices that were not present during the initial scan.</p>
-                </div><br>
-                
-                <div class="section">
-                    <h3>Listing Unknown Devices</h3>
-                    <p>USBScanner produces a detailed output, listing all unknown USB devices detected during the comparison process. Each entry 
-                        in the output includes essential information such as the Device ID, Name (if available), and Path/Bus details, enabling users 
-                        to easily identify devices. This capability was born out of the need to identify unknown devices' details as a part of a much larger
-                        project I cannot discuss.</p>
-                </div><br>            
-                
-                <div class="section">
-                    <h3>Automatic Execution and Output</h3>
-                    <p>As a standalone script, USBScanner operates autonomously, executing automatically without requiring any user interaction. 
-                        Throughout its execution, the program provides clear and concise output, visible in the command-line interface in real-time. 
-                        This allows users to monitor the process and review connected devices efficiently.</p>
-                </div>
-                <br><br>
-                <h2>Project Outcome</h2>
-                <div class="section">
-                    <h3>Streamlined Task Efficiency</h3>
-                    <p>USBScanner transformed a time-consuming task, prone to human error, into a seamless
-                        process that now takes only seconds. By automating the identification of unknown USB devices and providing all necessary 
-                        details swiftly.</p>
-                </div>
-                
-            </div>
-
-
-
 
 
             <!-- EVE Links Project -->
