@@ -15,6 +15,7 @@
         <!-- Side menu -->
         <div id="sidebar">
             <ul>
+                <li onclick="changeContent('jobSeekerAssist')">JobSeeker Assistant</li>
                 <li onclick="changeContent('usbScanner')">USB Scanner</li>
                 <li onclick="changeContent('deident')">De-identifier Project</li>
                 <li onclick="changeContent('eveLinks')">EVE Links</li>
@@ -39,6 +40,607 @@
         <div id="main">
             <!-- Insert completed projects below here -->
 
+            <!-- Job Seeker Assistant-->
+            <div id="jobSeekerAssist" style="display: none;">
+                <h1>JobSeeker Assistant</h1>
+      
+                <h2>Overview</h2>
+                <table class="details_table">
+                    <tr>
+                        <td style="width: 150px;">Project Started</td>
+                        <td>April 2024</td>
+                    </tr>
+                 
+                    <tr>
+                        <td>Platform</td>
+                        <td>Android 10+</td>
+                    </tr> 
+                    <tr>
+                        <td>Code</td>
+                        <td>Java</td>
+                    </tr> 
+                    
+                    <tr>
+                        <td>Status</td>
+                        <td>Work in progress - subject to change</td>
+                    </tr> 
+                </table> 
+
+
+                <br><br>
+                <h2>Initial Problem</h2>
+                <div class="section">
+                    <p>Job seekers are required to provide a record of the jobs they applied for to Centrelink, and maintaining this record can offer several benefits. 
+                        It serves as a quick reference, allowing individuals to refresh their memory if they are contacted unexpectedly by a potential employer. Additionally,
+                         this information can be valuable for job coaches or other support services that assist in the job search process. Recognizing these advantages, this project 
+                         was born to help streamline and enhance the job application tracking experience.</p>
+                </div>
+
+
+                <br><br>
+                <h2>Challenges</h2>
+
+                <div class="section">
+                    <h3>Addressing Navigation Challenges in the App</h3>
+                    <p>The initial system navigation bar proved to be nearly impossible to use, with some activities becoming completely unmanageable due to issues 
+                        like white icons on a white background—an inexplicable problem. Attempts to rectify the issue were unsuccessful, as they only allowed for color 
+                        changes that fit the app's theme but did not enhance usability. Given the considerable time already invested in trying to fix this problem, it 
+                        became clear that building a custom navigation bar would be a more efficient solution. This new interface provides basic navigation options beyond 
+                        the standard "back" and "home" buttons. To facilitate this, the app was designed to run in full screen, hiding the system navigation bar to encourage 
+                        users to rely solely on the new interface.</p>
+
+                    <p>However, I am currently addressing an ongoing issue where the system navigation bar occasionally reappears when users tap the screen or 
+                        perform specific actions. From what I can gather, this behavior seems to be semi-forced by Android for understandable reasons, but it 
+                        occurs unreliably; on some devices, it happens frequently while on others, it never appears. The annoyance is that when it does pop up, 
+                        users must tap twice to perform actions—the first tap brings up the navigation bar, while the second is needed to activate the app's features.</p>
+                    
+                    <p>A second challenge emerged when testing the app on various devices, revealing a lack of uniformity in the system navigation bar. Some devices position
+                         the back button on the left, while others place it on the right. To address this inconsistency, I implemented a customizable navigation bar that allows
+                          users to choose between two themes: one with the back button on the left and the other on the right. This flexibility ensures that users can select 
+                          their preferred layout, avoiding the frustrating experience of pressing the wrong button due to muscle memory.</p>
+                </div><br>
+
+                <div class="section">
+                    <h3>PDF Exporting</h3>
+                    <p>To create a file format that supports text formatting and is globally accepted, I chose PDF. However, this decision led to a series of challenges.
+                         One of the first hurdles was selecting a suitable library that could accomplish the required tasks without too many complications. My efforts to 
+                         find a viable library were unsuccessful, as many either didn’t work, were too expensive, or required sharing my code due to licensing 
+                         restrictions—something that was not acceptable. Ultimately, I opted to use Android's inbuilt library, which, while functional, lacked some 
+                         high-end features.</p>
+                </div><br>
+                
+                <div class="section">
+                    <h3>Calculating Coordinates</h3>
+                    <p>Using an inbuilt library meant I had to calculate various values, such as column positions and page layout, all based on coordinates. 
+                        This approach required meticulous planning to determine where to place elements on the page and when to transition to the next one. Since the 
+                        coordinates were mostly static, I could minimize the time spent calculating them by hardcoding the frame of a template, adding finer details
+                         later as the app began exporting and adjusted for dynamic content, such as user details if provided.</p>
+                </div><br>
+                
+                <div class="section">
+                    <h3>Preventing Text Overlap</h3>
+                    <p>Additionally, because the layout was coordinate-based and involved varying string lengths, I needed a system to prevent overlap of text.
+                         This was achieved by calculating how many characters could fit in a "table column" before reaching the edge, which allowed me to move down
+                          a line and reset the x-coordinate while adjusting the y-coordinate to simulate a new line.</p>
+                </div><br>
+                
+                <div class="section">
+                    <h3>Aligning User Details</h3>
+                    <p>I also encountered challenges when positioning user details to align with the right-hand side of the table. To solve this, I experimented
+                         with measuring how much space each character occupied in pixels. Using this data, along with the length of the longest string, I determined
+                          the x-coordinate based on the starting point used to draw the box that served as the table header.</p>
+                </div><br>
+                
+                <div class="section">
+                    <h3>Designing the Table Header</h3>
+                    <p>The table header itself presented another issue, as I needed to draw a black box with padding on both sides of the column headers. 
+                        This required a lot of experimentation and fine-tuning. Once the coordinates for this were determined, I drew a black box and set the text to 
+                        white to place it inside the boxes, effectively serving as the headers.</p>
+                </div><br>
+                
+                <div class="section">
+                    <h3>Template Management</h3>
+                    <p>Templates had been an issue of their own. Noticing how the initial implementation handled everything as an image, I opted to generate a template 
+                        image the first time the code runs and store the bitmap in memory for the duration of the exporting process. This meant I could paste that template
+                         on top of each new page and be ready to resume. However, this came at a cost; the template parts appeared grainy, with some letters looking malformed 
+                         or missing. Attempts to rectify this were unsuccessful.</p>
+
+                    <p>As a result, the template system was reworked. Now, all dynamic values are calculated once and stored in memory, allowing the app to use 
+                        hardcoded coordinates for static elements and stored dynamic coordinates for the changing parts. This change means calculations are only
+                         performed once each time a new page is added, and because the elements are pasted directly onto the new page, the resolution improved, 
+                         eliminating the issues seen with the initial template. Additionally, using templates significantly reduced the amount of computation and memory
+                          required during the exporting process, making it more efficient.</p>
+                </div><br>
+            
+                <div class="section">
+                    <h3>Fitting Content on the Page</h3>
+                    <p>Fitting everything on the page posed another significant challenge. To address this, I opted to use a smaller font that minimized horizontal space, a
+                        llowing me to maximize the content on each landscape A4 page. The maximum lengths of strings per column, the positions of columns, and the overall
+                         positioning of the table all played crucial roles in this process. I needed to keep the content close to the edge of the page; however, printers 
+                         generally do not print to the very edge due to mechanical limitations and ink bleeding. Thus, I needed to maintain a buffer area of white space 
+                         between the content and the edge of the page to ensure clean and professional-looking prints.</p>
+                </div><br>
+
+                <div class="section">
+                    <h3>Determining the Page End</h3>
+                    <p>Another challenge was programmatically determining when I was near the bottom of the page. To solve this, I kept track of the page height and 
+                        triggered a new page if the current y-coordinate approached that height within a set distance. This gap accounted for the possibility of entries
+                         spanning multiple lines, ensuring that no content was cropped or overflowed onto hardcoded details at the bottom of the page.</p>
+                </div><br>
+                
+                <div class="section">
+                    <h3>Addressing Language Barriers in Exporting Job Search Records</h3>
+                    <p>The challenge arose from the differing language preferences of users compared to the app's default language. The solution involved implementing a
+                         system that allows users to operate the app in their preferred language while exporting data in a different language. This innovative feature 
+                         essentially swaps the app's language to the user's desired choice during export and then reverts it once the process is complete. As a result, 
+                         users who feel more comfortable in their native language can easily send a copy of their job search record in a completely different language. 
+                         It's important to note that the translations are limited to static content; any information entered by the user remains in its original form.</p>
+                </div><br>
+
+                <div class="section">
+                    <h3>Tablet or Not Tablet: That Is the Question</h3>
+                    <p>There was a need to determine whether a device was a tablet or not. With the help of AI, I was able to generate code that checks a device's
+                        resolution to make this distinction. Testing has shown that this AI-developed code works effectively, accurately identifying tablets versus 
+                        non-tablets and ensuring that the app can deliver an optimized experience tailored to each device type.</p>
+                </div><br>
+                
+                <div class="section">
+                    <h3>Create a Dynamic Table on the Home Page</h3>
+                    <p>To enhance user experience, there was a need for a dynamic table on the home page that could efficiently utilize the available screen space. 
+                        By adapting the layout based on device type and orientation, the app could present information in a more organized and visually appealing manner.
+                         Each time a search is performed, the table is destroyed and recreated, ensuring it always reflects the most relevant data. Additionally, 
+                         each row is assigned an `onClick` listener, allowing users to select an entry they wish to edit or view, thereby enhancing interactivity 
+                         and user engagement.</p>
+                    
+                    <p>Part 1 of the solution involved assessing how many columns could be utilized to showcase entries stored in the device’s database, with this
+                         determination influenced by whether the device was a tablet or not.</p>
+                
+                    <p>Part 2 entailed implementing code that evaluates the space occupied by other UI elements and calculates the number of available columns.
+                         This data is then used to determine the maximum string length for each column, as well as the total number of rows the table can support. 
+                         This ensures a well-structured layout that adapts seamlessly to various screen sizes and orientations.</p>
+                    
+                    <p>Finally, Part 3 focused on dynamically updating the table in response to real-time changes in the device’s orientation or screen size. 
+                        This guarantees that users always have the most optimized view, enhancing usability and overall experience.</p>
+                </div><br>
+                
+                <div class="section">
+                    <h3>Process User Input</h3>
+                    <p>The challenge was to ensure that user input is in the correct format while providing multiple options for different data types. 
+                        This was largely achieved through the use of regular expressions (regex). With the assistance of AI, I was able to fine-tune the regex t
+                        o accurately identify a wide range of formats, including URLs, phone numbers, and email addresses, ensuring the input was not just a 
+                        string of punctuation but something usable.</p>
+                    
+                    <p>Additionally, regex was utilized in the user input filters implemented by a TextWatcher. This setup allowed the app to validate 
+                        input in real-time: if the input was valid, no action was taken, but if a special character that was not permitted was detected, 
+                        it was removed immediately as the user typed. This approach not only enhances the user experience but also ensures data integrity 
+                        across the application.</p>
+                </div><br>
+                
+                <div class="section">
+                    <h3>Import/Export</h3>
+                    <p>When importing data, it often comes from an uncontrolled source, leading to a reduced level of trust in its accuracy. To address this, the best 
+                        approach is to assume that users may have altered the data and to implement stringent tests to maintain security and data integrity. 
+                        This was achieved through the use of regular expressions (regex), which were employed to identify entries that resemble the expected 
+                        format of a single export from my app. If a match is found, further checks are initiated.</p>
+                
+                    <p>Regex is also utilized to extract all relevant data, ensuring that the process remains robust even if the internal structures of the data change. 
+                        The code then verifies data length, checks for illegal characters, and validates formats before accepting any entry. If any of these tests fail, 
+                        that particular piece of data is rejected, and the code proceeds to evaluate the next entry. This comprehensive approach helps ensure that only 
+                        valid data is imported, safeguarding the integrity of the application.</p>
+                </div><br>
+                
+                
+                <div class="section">
+                    <h3>Deciding What to Store</h3>
+                    <p>Deciding what information to store for online job applications proved to be surprisingly difficult. Initially, I considered storing job reference 
+                        numbers and website names, but eventually, I opted to simply store the URL of the job ad. This choice aligned more closely with the app's goal, 
+                        as users could easily browse to the website using the link.</p>
+                </div><br>
+                
+                <div class="section">
+                    <h3>Increase User Friendliness</h3>
+                    <p>The app is already user-friendly, but I believe there is room for improvement, particularly in how data is entered. Currently, users can 
+                        only input data by typing, copying and pasting, or using autofill. One potential enhancement I’m exploring is an automatic feature that 
+                        populates the text field with a URL when users share a link with the app. This could streamline the process and make it more convenient 
+                        for users to log their applications.</p>
+                    
+                        <p>Another idea, though more complex due to the diversity of email formats, is to enable users to select an email and have the app attempt
+                             to autofill based on its contents. However, I acknowledge that this approach may present significant challenges, as there is no 
+                             standardized format and the content can vary widely. Additionally, if I were to pursue the email reading feature, I would need to 
+                             invest considerable effort in ensuring security, as I cannot assume that users won't select an email containing a virus by mistake.</p>
+
+                </div><br>
+                
+                <div class="section">
+                    <h3>User Onboarding</h3>
+                    <p>To effectively teach users the basics of how to use the app, I recognized the need for a comprehensive onboarding solution. I decided to create an 
+                        up-to-date tutorial and guides section that includes videos providing a step-by-step walkthrough of the app's features. This approach caters to
+                         visual learners, allowing them to see the process in action and better understand how to navigate the app.</p>
+                    
+                    <p>The guides have been integrated into the ViewModel state-saving system that Android provides. While this was not its original intended purpose, 
+                        it effectively ensures that the correct guides are displayed when the screen rotates or when the user exits and returns to the app. 
+                        This integration also eliminates the need for duplicate code, as the observers monitor changes in the selected guide and trigger the
+                         necessary code to swap displays and load the new guide seamlessly.</p>
+                </div>
+                
+                
+                
+                               
+                <br><br>
+                <h2>UI Design</h2>
+
+                <h3>Custom UI Elements</h3>
+                <div class="section">
+                    <table>
+                        <tr>
+                            <td>
+                                <figure>
+                                    <img src="images\job_seeker_assistant\ui_parts\custom_text_field.png" alt="Text Field">
+                                    <figcaption>Text Field</figcaption>
+                                </figure>
+                            </td>
+    
+                            <td>
+                                <table class="details_table">
+                                    <tr>
+                                        <td>Legend</td>
+                                    </tr>
+                                 
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Title</td>
+                                    </tr> 
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Text fields may feature relevant icons based on purpose, or have no icon </td>
+                                    </tr> 
+                                    
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Field indicators can appear as "Required" in red, "Optional" in black, or no indicator.</td>
+                                    </tr> 
+                                </table> 
+                                
+                            </td>
+                        </tr>
+                       
+                    </table>
+                </div>
+                <br>
+
+                <div class="section">
+                    <table>
+                        <tr>
+                            <td>
+                                <figure>
+                                    <img src="images\job_seeker_assistant\ui_parts\navigation_bar_left.png" width="600px" alt="Navigation Bar Option 1">
+                                    <figcaption>Navigation Bar Option 1</figcaption>
+                                </figure>
+                            </td>
+    
+                            <td>
+                                <td>
+                                    <figure>
+                                        <img src="images\job_seeker_assistant\ui_parts\navigation_bar_right.png" width="600px" alt="Navigation Bar Option 2">
+                                        <figcaption>Navigation Bar Option 2</figcaption>
+                                    </figure>
+                                </td>
+                        </tr>
+                       
+                    </table>
+
+                    <p>Navigation Bar Features</p>
+
+                    <ul>
+                        <li>Back button ( arrow )</li>
+                        <li>Home button ( center )</li>
+                        <li>About button ( i )</li>
+                    </ul>
+                    
+                </div>
+                
+
+                <h3>Device - Phone</h3>
+                <table>
+                    <tr>
+                        <td>
+                            <figure>
+                                <img src="images\job_seeker_assistant\ui_parts\phone\main_screen_medium_phone.png" width="400px" alt="Home Page">
+                                <figcaption>Home Page</figcaption>
+                            </figure>
+                        </td>
+
+                        <td>
+                            <figure>
+                                <img src="images\job_seeker_assistant\ui_parts\phone\about_page_medium_phone.png" width="400px" alt="About">
+                                <figcaption>About</figcaption>
+                            </figure>
+                        </td>
+                        
+                        <td>
+                            <figure>
+                                <img src="images\job_seeker_assistant\ui_parts\phone\adding_records_medium_phone.png" width="400px" alt="Add Records">
+                                <figcaption>Add Records</figcaption>
+                            </figure>
+                        </td>
+
+                    </tr>
+                   
+                </table>  
+
+                
+                
+                <br> 
+               
+                <table>
+                    <tr>
+                        <td>
+                            <figure>
+                                <img src="images\job_seeker_assistant\ui_parts\phone\share_records_medium_phone.png" width="400px" alt="Share Records">
+                                <figcaption>Share</figcaption>
+                            </figure>
+                        </td>
+
+                        <td>
+                            <figure>
+                                <img src="images\job_seeker_assistant\ui_parts\phone\settings_medium_phone.png" width="400px" alt="Settings">
+                                <figcaption>Settings</figcaption>
+                            </figure>
+                        </td>
+
+                        <td>
+                            <figure>
+                                <img src="images\job_seeker_assistant\ui_parts\phone\view_details_edit_active_medium_phone.png" width="400px" alt="Edit Record">
+                                <figcaption>Edit Record</figcaption>
+                            </figure>
+                        </td>
+
+                    </tr>
+                   
+                </table>  
+               
+
+                <br> 
+               
+                <table>
+                    <tr>
+
+                        <td>
+                            <figure>
+                                <img src="images\job_seeker_assistant\ui_parts\phone\view_details_medium_phone.png" width="400px" alt="View Record">
+                                <figcaption>View Record</figcaption>
+                            </figure>
+                        </td>
+
+                        <td>
+                            <figure>
+                                <img src="images\job_seeker_assistant\ui_parts\phone\help_medium_phone.png" width="400px" alt="Help">
+                                <figcaption>Help</figcaption>
+                            </figure>
+                        </td>
+
+                        <td>
+                            <figure>
+                                <img src="images\job_seeker_assistant\ui_parts\phone\guide_selected_medium_phone.png" width="400px" alt="Guide">
+                                <figcaption>Guide Selected</figcaption>
+                            </figure>
+                        </td>
+    
+                   
+                </table>  
+
+                <h3>Device - Tablet</h3>
+               
+                <table>
+                    <tr>
+                        <td>
+                            <figure>
+                                <img src="images\job_seeker_assistant\ui_parts\tablet\home_port_tablet.png" width="500px" alt="Home">
+                                <figcaption>Home</figcaption>
+                            </figure>
+                        </td>
+
+                        <td>
+                            <figure>
+                                <img src="images\job_seeker_assistant\ui_parts\tablet\home_land_tablet.png" width="800px" alt="Home landscape">
+                                <figcaption>Home landscape</figcaption>
+                            </figure>
+                        </td>
+                    </tr>
+                   
+                </table>  
+
+                <table>
+                    <tr>
+                        <td>
+                            <figure>
+                                <img src="images\job_seeker_assistant\ui_parts\tablet\add_record_tablet.png" width="500px" alt="Add Record">
+                                <figcaption>Add Record</figcaption>
+                            </figure>
+                        </td>
+
+                        <td>
+                            <figure>
+                                <img src="images\job_seeker_assistant\ui_parts\tablet\share_tablet.png" width="500px" alt="Share">
+                                <figcaption>Share</figcaption>
+                            </figure>
+                        </td>
+                    </tr>
+                   
+                </table>  
+
+                <table>
+                    <tr>               
+                    
+                        <td>
+                            <figure>
+                                <img src="images\job_seeker_assistant\ui_parts\tablet\settings_tablet.png" width="500px" alt="Settings">
+                                <figcaption>Settings</figcaption>
+                            </figure>
+                        </td>
+                        <td>
+                            <figure>
+                                <img src="images\job_seeker_assistant\ui_parts\tablet\help_tablet.png" width="500px" alt="Help">
+                                <figcaption>Help</figcaption>
+                            </figure>
+                        </td>
+
+                        
+                    </tr>
+                   
+                </table>  
+
+                <br><br>
+                <h2>Sample Output </h2>
+                <div class="section">
+                    <h3>No User Details Provided</h3>
+                    <img src="images\job_seeker_assistant\export\no_user_details_provided.png" alt="No user details exmaple">
+                    <br>
+                    <br>
+                </div><br>
+
+                <div class="section">
+                    <h3>User Details Provided</h3>
+                    <img src="images\job_seeker_assistant\export\user_details_provided.png" alt="user details exmaple">  
+                    <br> 
+                    <br>
+                </div><br>
+
+               
+
+                <br><br>
+                <h2>Project Outcome</h2>
+                <div class="section">
+                    <p>The app resulting from this project has significantly improved the convenience of recording jobs and reporting the positions users have applied for. 
+                        Its offline-focused design ensures that users don’t need an internet connection to access its features, enhancing accessibility. Additionally, the app
+                         performs admirably on budget devices, demonstrating respectable speed during testing, which allows users with affordable devices to fully benefit from 
+                         its capabilities. However, there is still room for improvement, particularly in streamlining the process of logging the jobs users have applied for.
+                         I plan to prioritize these enhancements as I continue developing the project to further increase its user-friendliness.</p>
+                </div><br>
+
+
+
+
+                <h2>Lessons Learned</h2>
+                <div class="section">
+                    <h3>Android PDF Creation</h3>
+                    <p>Through the process of developing the PDF export functionality, I gained valuable insights into writing PDF files in Android using the base library. 
+                        I became familiar with its limitations and the specific challenges that come with PDF generation, such as managing coordinates, ensuring proper text 
+                        formatting, and dealing with various layout constraints. This experience not only enhanced my technical skills but also deepened my understanding of 
+                        how to optimize document creation for mobile applications.</p>
+                </div><br>
+                
+                <div class="section">
+                    <h3>File Exporting</h3>
+                    <p>In the process of implementing file exporting, I learned how to save files to the device and share them with other applications using file URIs. 
+                        The exporting process was streamlined through a single intent chooser that listed both options at once, allowing users to select their preferred 
+                        method for sharing. This approach required a solid understanding of user permissions to ensure that files were accessible while maintaining 
+                        user privacy. Mastering this aspect of Android development not only enhanced the functionality of my application but also provided me with
+                         valuable insights into file handling and inter-app communication on the platform.</p>
+                </div><br>
+                
+                <div class="section">
+                    <h3>Preference Saving</h3>
+                    <p>I learned how to utilize Android's preference saving system to manage app settings effectively, ensuring a seamless user experience.</p>
+                </div><br>
+                
+                <div class="section">
+                    <h3>State Saving through ViewModels</h3>
+                    <p>I learned how to use ViewModels to effectively save state, which helped maintain data consistency during configuration changes. 
+                        This approach is crucial for state management in Android, as it allows for a smoother user experience by preserving UI-related 
+                        data across activity and fragment lifecycles. Utilizing ViewModels ensured that my application could handle orientation changes
+                         and other interruptions without losing user input or display information.</p>
+                </div><br>
+
+                <div class="section">
+                    <h3>The Importance of Threads</h3>
+                    <p>I learned about the critical role of threads in speeding up processing and setup within my application. This understanding highlighted 
+                        the potential issues that can arise when working with multiple threads, necessitating fallback code and validation checks to prevent
+                         invalid states. Additionally, I recognized the importance of implementing mechanisms to catch and handle errors effectively, as well as 
+                         being mindful of timing due to the nature of threading. Putting thread-safe operations into practice was essential to ensure smooth
+                          functionality and to maintain application stability.</p>
+                </div><br>
+                
+                <div class="section">
+                    <h3>Handling SQL Queries in Android</h3>
+                    <p>I learned how to effectively use and handle SQL queries in Android, particularly when selecting specific entries using precise statements
+                         rather than relying on a generic "SELECT *" approach. This experience taught me the importance of crafting tailored queries to optimize
+                          performance and ensure that only the necessary data is retrieved. Understanding how to implement these queries not only improved the 
+                          efficiency of my app but also enhanced my overall database management skills.</p>
+                </div><br>
+                
+                <div class="section">
+                    <h3>Importance of Archiving via GitHub</h3>
+                    <p>I learned the critical importance of archiving my project using GitHub. There were several instances where mistakes were made, 
+                        necessitating an entire rebuild. Thanks to having the project stored in a repository that I updated regularly, I was able to restore
+                         working code and undo errors. This version control provided me with a reliable means to roll back entire updates if necessary, ensuring
+                          that I could maintain progress without losing valuable work.</p>
+                    
+                          <p>Branches were particularly beneficial, allowing me to maintain stable working code in the main branch while isolating problematic code 
+                            in separate branches. This approach enabled me to safely remove or update any bad code without jeopardizing the integrity of the main codebase. 
+                            However, I learned a valuable lesson about the risks associated with switching branches. After identifying a mistake, I corrected it in the 
+                            default branch and committed the change, believing it to be a safe fix. Unfortunately, this commit caused a misalignment between the branches, 
+                            resulting in the main branch being ahead of the current working branch and leading to merge complications. Consequently, I was unable to reconcile 
+                            the complex changes, which forced me to create a new default branch. This experience highlighted the need to manage branches carefully
+                             and reinforced the importance of a structured version control strategy, particularly avoiding changes in the default branch when others are 
+                             being worked on.</p>    
+
+                </div><br>
+                
+                <div class="section">
+                    <h3>Unit Testing using Android Studio's Test Folder</h3>
+                    <p>I learned the importance of unit testing through Android Studio's test folder feature, which enabled me to validate core functionalities within the app.
+                         While I successfully tested various aspects of the code, I have yet to determine how to test user interface elements or perform context-requiring tasks,
+                          such as file writing, within these tests. As a result, I opted for manual testing for those components. However, I effectively utilized unit 
+                          tests to thoroughly evaluate whether the user-provided data was in the correct format, along with other critical functionalities. 
+                          This experience highlighted the value of unit testing in ensuring code reliability and performance, and it encouraged me to explore 
+                          further testing capabilities within Android Studio.</p>
+                </div><br>
+                
+                <div class="section">
+                    <h3>Designing Adaptive UIs</h3>
+                    <p>I gained valuable insights into designing multi-screen UIs using Android Studio’s functionality to manage screen sizes and orientations. By implementing 
+                        specific layouts based on device characteristics, the app can support a wide range of devices, from mobile phones to large tablets. This approach 
+                        allowed me to create a more adaptable user experience, ensuring that the interface remains functional and visually appealing across various screen 
+                        sizes and orientations. Leveraging resource qualifiers and understanding how to implement responsive design principles were key to achieving this 
+                        level of versatility in the app.</p>
+                </div><br>
+                
+                                
+                <div class="section">
+                    <h3>UI Design</h3>
+                    <p>I learned better UI design techniques that allowed me to create more complex and visually appealing interfaces. This included careful consideration 
+                        of where elements are placed, making intentional choices about color schemes, incorporating gradients, and ensuring overall visual harmony. 
+                        By focusing on these aspects, I was able to enhance the user experience and create an intuitive interface that guides users seamlessly 
+                        through the application.</p>
+                </div><br>
+                
+                <div class="section">
+                    <h3>Custom UI Elements</h3>
+                    <p>I learned how to create custom UI elements, such as a navigation bar and text field, which reduced the amount of extra code needed. 
+                        These elements added intelligence, like a text field with its own filter and error handling, using XML values for automatic 
+                        setup—optimizing the development process.</p>
+                </div><br>
+
+                <div class="section">
+                    <h3>Locale Implementation</h3>
+                    <p>I learned how to implement locale support in my app to ensure users can interact with it in their preferred language. This involved using relevant 
+                        locale strings, locale codes, and a custom-made selector to set the app's locale. By refreshing the display after making changes, I ensured that 
+                        the updates occurred live without requiring a restart. This experience highlighted the importance of localization in creating an inclusive user 
+                        experience.</p>
+                </div><br>
+                
+                <div class="section">
+                    <h3>Emulator vs. Live Device Testing</h3>
+                    <p>I learned that what works on an emulator may not always function the same way on a live device. This became apparent when I balanced testing on 
+                        an emulator with debugging on a mobile phone and a cheap tablet. I noticed instances where code would work perfectly in the emulator but fail
+                         on physical devices. This reinforced the importance of occasionally testing on physical devices to avoid unexpected failures and ensure a more reliable
+                          user experience.</p>
+                </div><br>
+                
+                
+            </div>
+
             <!-- USBScanner Project -->
             <div id="usbScanner" style="display: none;">
                 <h1>USB Scanner</h1>
@@ -62,49 +664,70 @@
                     </tr>            
                 </table> 
                 <br><br>
-                <h2>Functionality</h2>
+            
+                <h2>Initial Problem</h2>
                 <div class="section">
-                    <h3>USBScanner Program Functionality</h3>
-                    <p>The USBScanner program operates seamlessly in a command-line environment, where user interaction is minimal. 
-                        However, its outputs are readily visible throughout its execution.</p>
-                </div><br>
-                
-                <div class="section">
-                    <h3>Initialization Process</h3>
-                    <p>Upon its first execution, USBScanner automatically captures and stores information regarding all connected USB ports a
-                        nd devices. This initial setup phase occurs silently in the background, without necessitating any user input. 
-                        It establishes a comprehensive reference list of known USB devices for subsequent comparisons.</p>
-                </div><br>
-                
-                <div class="section">
-                    <h3>Comparison with Known USB Devices</h3>
-                    <p>During subsequent runs, USBScanner compares the current state of connected USB devices with the reference list generated
-                        during initialization. It efficiently identifies any new or unknown devices that were not present during the initial scan.</p>
-                </div><br>
-                
-                <div class="section">
-                    <h3>Listing Unknown Devices</h3>
-                    <p>USBScanner produces a detailed output, listing all unknown USB devices detected during the comparison process. Each entry 
-                        in the output includes essential information such as the Device ID, Name (if available), and Path/Bus details, enabling users 
-                        to easily identify devices. This capability was born out of the need to identify unknown devices' details as a part of a much larger
-                        project I cannot discuss.</p>
-                </div><br>            
-                
-                <div class="section">
-                    <h3>Automatic Execution and Output</h3>
-                    <p>As a standalone script, USBScanner operates autonomously, executing automatically without requiring any user interaction. 
-                        Throughout its execution, the program provides clear and concise output, visible in the command-line interface in real-time. 
-                        This allows users to monitor the process and review connected devices efficiently.</p>
+                    <p>
+                        We needed a reliable method to determine if a specific device would be recognized when connected via USB to a PC. Our goal was to extract details from 
+                        that device while ensuring there was no doubt it was indeed the desired device and not just a component of the PC. This necessity gave rise to the 
+                        development of this project.</p>
                 </div>
+                
+
+
+                <br><br>
+                <h2>Challenges</h2>
+                <div class="section">
+                    <h3>Choosing the Programming Language</h3>
+                    <p>The group project was primarily run on Linux, necessitating that the code be compatible with that platform. While exploring options, 
+                        I considered using Java, but I encountered difficulties getting the USB scanning library to work. C# was also not viable due to its USB 
+                        library being Windows-only. Ultimately, I decided to stick with Python, which offered built-in functionality for my needs. I was able to 
+                        find workable code that served as a guide for building the USB scanning functionality.</p>
+                </div><br>
+
+                <div class="section">
+                    <h3>Identifying Unknown Devices</h3>
+                    <p>I needed a method to identify unknown devices connected to the PC. The solution involved creating a script that utilized a text file listing all known devices. During each scan, the script would compare the detected devices against the known list, removing any matches from the results. This allowed the script to output to the user, as well as to a separate file, all the devices that remained, effectively highlighting the unknown ones. This functionality requires the script to be run at least once without the device you're trying to identify connected, as the script will create a file of known devices if it runs without that file existing. This file can easily be edited later, allowing devices to be added or removed as needed without breaking the script.</p>
+                </div><br>
+                 
+                <div class="section">
+                    <h3>Identifying USB Devices</h3>
+                    <p>I needed a reliable method to differentiate USB devices to facilitate accurate cross-comparison between known USB devices and those 
+                        found during the most recent scan. After reviewing multiple scan attempts, I observed that the device ID and vendor name remained 
+                        consistent across devices. This combination became the basis for identifying USB devices effectively.</p>
+                </div><br>
+
+                <div class="section">
+                    <h3>Storing Data in a Usable Fashion</h3>
+                    <p>The scanning method returns a string, but I needed specific parts of that string for various checks and may require additional 
+                        details provided by the scan. Consequently, I couldn't afford to crop the data away. I opted to use an object to represent the USB device, 
+                        which allowed for easy access to the relevant parameters necessary for cross-comparing scanned devices with known ones. This approach preserved 
+                        the rest of the data, ensuring it could be easily saved to a file in a format that my script could later parse and reconstruct.</p>
+                </div>
+
+
+
                 <br><br>
                 <h2>Project Outcome</h2>
                 <div class="section">
-                    <h3>Streamlined Task Efficiency</h3>
-                    <p>USBScanner transformed a time-consuming task, prone to human error, into a seamless
+                    <p>The script transformed a time-consuming task, prone to human error, into a seamless
                         process that now takes only seconds. By automating the identification of unknown USB devices and providing all necessary 
                         details swiftly.</p>
                 </div>
                 
+
+                <br><br>
+                <h2>Lessons Learned</h2>
+                <div class="section">
+                    <h3>Python USB Scanning and Device Filtering</h3>
+                    <p>This project taught me valuable lessons about using Python for USB scanning and device filtering. I learned how to effectively 
+                        grab the details that USB devices provide to the operating system to identify what's connected. Additionally, I gained insights into 
+                        filtering data based on device IDs and vendor names, which proved essential for accurately identifying unknown devices. The experience
+                         emphasized the importance of maintaining clear documentation and modular code to facilitate future updates and enhancements.</p>
+                </div><br>
+                
+
+
             </div>
 
             <!-- De-identifier Project -->
@@ -133,136 +756,117 @@
                     </tr>            
                 </table> 
                 <br>
+
+                <h2>Initial Problem</h2>
                 <div class="section">
-                    <h3>User Authorization and Legal Compliance</h3>
-                    <p>The program operates under the assumption that users accessing sensitive information are legally entitled to do so. This prerequisite ensures compliance with privacy regulations and safeguards against unauthorized access or misuse of confidential data. Users must possess the necessary permissions and authorizations to view and modify sensitive information, thereby mitigating the risk of privacy breaches and legal liabilities.</p>
+                   <p>As part of a university project working with fellow students, we were requested to build a deidentifier for sensitive information, 
+                    such as logs and IP packets, to support machine learning models. It was crucial to obfuscate this data to protect privacy while still
+                     retaining underlying patterns that would keep the information useful. To meet this challenge, we developed a program designed to render 
+                     the data unidentifiable while ensuring it remained functional for testing and analysis, allowing us to safely handle sensitive information
+                      in our collaborative project.</p>
                 </div>
+
+
                 <br><br>
-                <h2>Functionality</h2>
-                            
+                <h2>Challenges</h2>
                 <div class="section">
-                    <h3>Command Line Program</h3>
-                    <p>The functionality of this software primarily revolves around its command-line interface, making it accessible and efficient for users who are comfortable with terminal-based interactions. Users can execute various commands to initiate the desired operations, such as identifying specific types of sensitive information within data sets or packet captures.</p>
-                </div>
-                <br>
-                                            
-                <div class="section">
-                    <h3>Data Identification and Filtering</h3>
-                    <p>The program is adept at recognizing sensitive information such as IP addresses, email addresses, names, and student numbers. To minimize false positives, it employs sophisticated algorithms that consider not only the presence of keywords but also the context in which they appear. This involves examining punctuation and surrounding text to ensure accurate identification.</p>
-                </div>
-                <br>
+                    <h3>Secure Communication Over a Network</h3>
+                    <p>The program included an option for communication over a network, which meant that the data in transit needed to be secure. 
+                        To address this, we researched secure sockets and successfully implemented secure communication in Java, ensuring that all required 
+                        parameters were passed accurately to the libraries. This task proved to be quite challenging due to the complexity of secure sockets;
+                         even minor errors in these specific values could cause the system to crash with little explanation.</p>
+                </div><br>
                 
                 <div class="section">
-                    <h3>System Awareness and Compatibility</h3>
-                    <p>Understanding common Linux system commands and structures is crucial for reducing errors and enhancing the program's 
-                        compatibility across different environments. By leveraging knowledge of Linux systems, the software can navigate file
-                        systems, logs, and other unstructured data sources efficiently.</p>
-                </div>
-                <br>
+                    <h3>Comprehensive Data Processing</h3>
+                    <p>We faced the challenge of finding all data that needed to be processed and ensuring that nothing was overlooked. 
+                        To address this, we implemented a system utilizing polymorphism and a loop that allowed us to add all tests to a single ArrayList.
+                         This setup enabled the tests to run on every single line from various sources, including files, logs, and file paths. Our tests were
+                          designed to check for patterns resembling IP addresses, emails, IDs, and more. Additionally, we included checks for file paths, file names,
+                           and directories, all of which would be altered if they matched any of the filters.</p>
+                    
+                    <p>To ensure every file was checked, we employed a recursive search approach, allowing the code to start from a defined point and explore 
+                        all subsequent paths. If a match was found, the data would be deidentified, prompting user input only if it reached a level of ambiguity 
+                        concerning names. The code was also case insensitive and attentive to punctuation, requiring meticulous letter-by-letter examination to
+                         ensure that cases like "n|name|1232342" were not missed. Furthermore, since changing dates and times was a requirement, we implemented 
+                         modifications to these as well, arguing that it should be impossible for someone to view security cameras and identify individuals referenced
+                         by the deidentified data.</p>
+                </div><br>
+                
                 
                 <div class="section">
-                    <h3>Anonymization and Data Preservation</h3>
-                    <p>An important aspect of the program is its ability to anonymize sensitive data while preserving the overall structure and 
-                        integrity of the original information. This process involves replacing identifiable elements with placeholders or randomized 
-                        values, ensuring compliance with privacy regulations without compromising data utility.</p>
-                </div>
-                <br>
+                    <h3>Preserve Data Format</h3>
+                    <p>We encountered the challenge of preserving the original data format while deidentifying sensitive information. The program was designed to remember 
+                        the first instance of any data it encountered and track any changes made. If the same data appeared again, it would replace it with the updated value 
+                        or an alternative specified by the user if it reached that level of input. Additionally, the modified data needed to conform to the original format; 
+                        for instance, a name would be transformed into a jumbled version of itself, an email would become a jumbled email, and IP addresses would remain
+                         identifiable as IPs but altered. This ensured that the integrity of the data format was maintained throughout the deidentification process.</p>
+                </div><br>
+              
+                <div class="section">
+                    <h3>Reduce False Positives and User Action Requirements</h3>
+                    <p>We faced the challenge of minimizing false positives and reducing the need for user intervention. To achieve this, we 
+                        identified common Linux commands and other irrelevant entries that appeared in the test data, programming the system to ignore them. 
+                        Additionally, we allowed users to add their own items to this exclusion list, enhancing flexibility. The program’s ability to track 
+                        changes also contributed to reducing false positives and limiting the frequency of user actions. As a result of these improvements, we 
+                        successfully decreased a list of over 100 results down to around 30, as the program effectively ignored unnecessary commands and uncovered 
+                        structured data—such as IP addresses and emails—hidden within punctuation.</p>
+                </div><br>
                 
                 <div class="section">
-                    <h3>Client-Server Architecture</h3>
-                    <p>The software offers both client-server and offline modes, providing flexibility in how users interact with it. In client-server 
-                        mode, users can remotely access the program's functionality and synchronize changes securely over a network connection. 
-                        This architecture facilitates collaboration and centralized management of sensitive data across multiple devices or locations.</p>
-                </div>
-                <br>
+                    <h3>Processing IP Packets from a Network Capture</h3>
+                    <p>We faced the challenge of checking and editing IP packets from network captures without compromising the integrity of the packets.
+                         To achieve this, we utilized a third-party library while creating new IP addresses ourselves. This approach allowed us to use the library
+                          to examine every single packet, facilitating the checking and modification of source and destination IP addresses to render them deidentified. 
+                          By carefully managing these processes, we ensured that the essential structure of the packets remained intact while effectively anonymizing
+                           sensitive information.</p>
+                </div><br>
                 
                 <div class="section">
-                    <h3>Secure Communication</h3>
-                    <p>To ensure data integrity and confidentiality, the program utilizes Secure Socket Layer (SSL) or Transport Layer Security (TLS) 
-                        protocols for communication between clients and servers. This encryption mechanism safeguards sensitive information during 
-                        transmission, mitigating the risk of interception or unauthorized access.</p>
-                </div>
-                <br>
-                
-                <div class="section">
-                    <h3>User Interaction and Decision-Making</h3>
-                    <p>In cases where the program encounters ambiguous or uncertain data, it presents these findings to the user for review and 
-                        decision-making. Users are empowered to determine whether to modify or preserve the identified information, providing a 
-                        layer of control and transparency in the anonymization process.</p>
-                </div>
-                <br>
-                
-                <div class="section">
-                    <h3>Automated Synchronization and Efficiency</h3>
-                    <p>To streamline the anonymization process, the program incorporates automated synchronization features specifically designed 
-                        for client-server mode. In this mode, user preferences and modifications are saved and synchronized seamlessly across multiple 
-                        devices over a secure connection. This minimizes the need for manual intervention and accelerates the overall deidentification 
-                        process. However, in offline mode, changes are saved exclusively to a local file without synchronization across devices. 
-                        This distinction ensures efficient data management while catering to different usage scenarios.</p>
-                </div>
+                    <h3>Preserve Original Files While Deidentifying Them</h3>
+                    <p>We faced the challenge of preserving the original files while still deidentifying the data contained within them. To address this, 
+                        the code was designed to create a copy of all processed data in the deidentified form within the root directory of its execution. 
+                        This approach ensured that users could access the altered files without the risk of corrupting or damaging the original files.</p>
+                </div><br>
                 
 
+                <div class="section">
+                    <h3>Facilitating Easy Addition of Tests and Checks</h3>
+                    <p>This aspect highlighted the advantage of using polymorphism, as it allowed all deidentifying code to accept a consistent format and return 
+                        a specific structure. In this case, the structure was a wrapper containing the original value, the changed value, and information about any
+                         issues that occurred. As a result, the order of the tests was enforced by the sequence in which they were registered in the ArrayList. 
+                         This list was then processed using a for-each loop, which would only break out if an issue arose or if all tests were exhausted. 
+                         The name deidentifying check was placed last in the sequence, functioning as the catchall to handle any remaining cases.</p>
+                </div>
+                
+              
                 <br><br>
                 <h2>Project Outcome</h2>
                 <div class="section">
-                    <h3>Effective Identification of Sensitive Information</h3>
-                    <p>The program demonstrated satisfactory performance in identifying various types of sensitive information, such as IP addresses, emails, names, and student numbers, within unstructured data. It effectively balanced accuracy and false positives at acceptable levels, ensuring thorough data analysis while minimizing errors in identification.</p>
+                    <p>Following the start of my university semester, my involvement in the project decreased, leaving me with limited insights into the tool's impact. However, 
+                        I thoroughly enjoyed the challenge of developing the deidentifier tool. Breaking down complex problems and finding solutions was both stimulating and rewarding. 
+                        The tool effectively deidentifies sensitive data across multiple computers using secure communication protocols. While I don’t have updates on user feedback from 
+                        the authorized requester, the process of tackling these challenges has deepened my understanding of data privacy and security.</p>
                 </div>
-                <br>
-                
+                <br><br>
+
+
+
+
+                <h2>Lessons Learned</h2>
                 <div class="section">
-                    <h3>Thorough Data Analysis</h3>
-                    <p>By delving into IP packet captures and employing detailed checks, the program ensured a comprehensive analysis of data, minimizing the risk of overlooking critical information.</p>
-                </div>
-                <br>
-                
+                    <h3>Implementation of Secure Communication</h3>
+                    <p>Through this experience, I learned how to effectively implement secure sockets for data transmission. Additionally, I gained 
+                        practical knowledge about keystore files, including how to create, read, and use them for managing cryptographic keys and certificates. 
+                        This understanding will be invaluable for future projects involving secure communication and sensitive data handling.</p>
+                </div><br>
+
                 <div class="section">
-                    <h3>Minimization of False Positives</h3>
-                    <p>Through awareness of system commands and meticulous filtering processes, the program effectively reduced false positives to maintain data accuracy and reliability.</p>
-                </div>
-                <br>
-                
-                <div class="section">
-                    <h3>Robust Anonymization Techniques</h3>
-                    <p>The program implemented robust anonymization methods while preserving the underlying data structure, ensuring compliance with privacy regulations without compromising data integrity.</p>
-                </div>
-                <br>
-                
-                <div class="section">
-                    <h3>Flexible Deployment Options</h3>
-                    <p>Offering both client-server and offline modes, the program provided users with flexibility in accessing and managing sensitive data according to their preferences and operational requirements.</p>
-                </div>
-                <br>
-                
-                <div class="section">
-                    <h3>Secure Communication</h3>
-                    <p>Utilizing Secure Socket Layer (SSL) communication, the program ensured secure transmission of data, safeguarding against unauthorized access and data breaches.</p>
-                </div>
-                <br>
-                
-                <div class="section">
-                    <h3>Efficient Handling of Unstructured Data</h3>
-                    <p>By managing unstructured data across various file systems and logs, the program demonstrated adaptability and efficiency in processing diverse data formats.</p>
-                </div>
-                <br>
-                
-                <div class="section">
-                    <h3>User Empowerment and Decision-Making</h3>
-                    <p>The program empowered users by presenting potentially ambiguous data for review and decision-making, allowing them to determine whether to modify or preserve identified information.</p>
-                </div>
-                <br>
-                
-                <div class="section">
-                    <h3>Streamlined Workflow</h3>
-                    <p>Through automated synchronization features and efficient data saving mechanisms, the program optimized workflow and minimized user intervention, enhancing overall productivity and efficiency.</p>
-                </div>
-                <br>
-                
-                <div class="section">
-                    <h3>Enhanced Collaboration</h3>
-                    <p>With synchronized changes facilitated in client-server mode, the program promoted collaboration and centralized management of sensitive data, facilitating seamless communication and decision-making processes.</p>
-                </div>
-                
+                    <h3>Efficient Coding Practices</h3>
+                    <p>Throughout this project, I learned valuable lessons about coding efficiency by examining the code written by my peers.
+                         This experience underscored the importance of exploring different coding styles and approaches, which can lead to more effective solutions.
+                          Collaborating with others revealed new techniques and methods that I can apply to improve my own coding practices in future projects.</p>
+                </div><br>
             </div>
 
 
@@ -289,33 +893,92 @@
                     </tr>            
                 </table>   
                 <br><br>
-                <h2>Functionality</h2>
+                
+                <h2>Initial Problem</h2>
                 <div class="section">
-                    <h3>Thorough Testing</h3>
-                    <p>Testing ensures stability and prevents crashes, crucial for maintaining responsiveness during critical moments. 
-                        Crashes are particularly detrimental as they slow down response times when rapid action is required.</p>
-                </div><br>
-                <div class="section">
-                    <h3>Redundancy and Fail-Safes</h3>
-                    <p>Multiple fail-safes and redundancy mechanisms are incorporated to enhance reliability and minimize the risk of failure,
-                        ensuring uninterrupted operation.</p>
-                </div><br>
-                <div class="section">
-                    <h3>Space-Efficient Design</h3>
-                    <p>The program is designed to occupy minimal screen space on a secondary display, ensuring quick access to essential features
-                        without clutter. This streamlined design optimizes user workflow and efficiency.</p>
-                </div><br>
-                <div class="section">
-                    <h3>Utilization of Unit Testing in C#</h3>
-                    <p>The program's development process includes unit testing in C#, a robust testing framework for C# applications. This systematic 
-                        testing approach validates individual components and contributes to overall reliability.</p>
-                </div><br>
-                <div class="section">
-                    <h3>Emphasis on Efficiency and Speed</h3>
-                    <p>The program prioritizes efficiency and speed in its design and functionality. While not necessarily the most memory-efficient, 
-                        it leverages a garbage collector during memory-intensive tasks to maintain performance levels. This focus on efficiency ensures 
-                        swift execution of tasks and enhances user productivity.</p>
+                    <p>When answering questions, you needed to respond within one minute. The existing system relied on a notepad within the game, 
+                        which required finding the notepad and navigating through a complex array of notes to address various inquiries. This method 
+                        was inefficient and cumbersome. To solve this issue, the program was developed and used, enabling rapid searches for 
+                        data without needing to finish typing. With additional copy and paste support, users could quickly transfer information into 
+                        chat, streamlining the process significantly.</p>
                 </div>
+                
+                <br><br>
+                <h2>Challenges</h2>
+                <div class="section">
+                    <h3>Running Concurrently with the Game</h3>
+                    <p>To address the need for the program to run alongside the game, I minimized the window size of the application, 
+                        ensuring it occupied as little space as possible on a second screen. This approach allowed the program to operate efficiently
+                         without consuming excessive memory, maintaining reasonable responsiveness even while the demanding game was in progress.</p>
+                </div><br>
+                
+                <div class="section">
+                    <h3>Redundancy</h3>
+                    <p>The search process was memory-intensive, primarily due to the numerous objects being created and the dynamic generation of the clickable
+                         list in the tables displaying entries of interest. This could have contributed to some crashes in the program (though I can't recall the 
+                         specifics, as it was a while ago). I addressed the issue by using a garbage collector along with cleanup code to run after each search. 
+                         While this was not a perfect solution, it effectively alleviated the memory issues the program was experiencing at the time and reduced some
+                          sources of crashes.</p>
+                
+                    <p>I also conducted thorough tests by using the program myself, along with unit tests and stress tests over time, to identify and address issues
+                         that caused the program to crash. It took considerable time and effort, but I ultimately made the program very difficult to crash, even through
+                          deliberate actions.</p>
+                </div><br>
+                
+                
+                <div class="section">
+                    <h3>Table Creation</h3>
+                    <p>The onclick events for the table were not functioning as intended due to the initial build process being semi-static and semi-dynamic, 
+                        which caused binding issues. After extensive research, I found a solution that allowed me to dynamically create the entire table from 
+                        scratch and bind the onclick events during its creation.</p>
+                
+                    <p>Additionally, manipulating the table, such as resizing it, could lead to crashes. To mitigate this risk, I identified the necessary flags
+                         and stored them as constants, including hard-coded widths and other dimensions. This approach enhanced the efficiency of the dynamic creation
+                          process while reducing the likelihood of bugs.</p>
+                </div><br>
+                
+                <div class="section">
+                    <h3>Making the Table UI Look Reasonable</h3>
+                    <p>The problem arose when the view containing the table was wider than the table’s columns, resulting in visible edges and a white
+                         gap between the table column and the scrollbar. To address this issue, I fine-tuned the maximum width of the table columns in conjunction
+                          with the maximum width of the containing view. This adjustment minimized the gap, ensuring that the appearance of the UI was much more cohesive
+                           and visually appealing.</p>
+                </div><br>
+
+                <div class="section">
+                    <h3>UI Resizing Issues</h3>
+                    <p>Resizing the UI resulted in an awkward and unappealing appearance, detracting from the overall user experience. To address this, I opted to disable
+                         resizing completely while ensuring that the window was as small as possible while still maintaining usability and convenience. This decision helped 
+                         maintain a clean and functional UI, preventing any visual inconsistencies that could arise from user interactions.</p>
+                </div><br>
+                           
+                <div class="section">
+                    <h3>Ease of Use</h3>
+                    <p>To enhance ease of use, I consolidated all functionalities into a single window, organizing them into distinct boxes or sections that took up minimal
+                         space while remaining visually appealing. This design allowed users to quickly change how information was copied and view additional details without
+                          cluttering the interface. A new window would only open when adding or editing an entry in the main list, streamlining the workflow and keeping the 
+                          user experience efficient and focused.</p>
+                </div><br>
+    
+                <div class="section">
+                    <h3>Sorting Data</h3>
+                    <p>The program displays entries in alphabetical order, which was achieved through a straightforward approach that minimizes processing. Sorting occurs only 
+                        when an entry is added or updated in the main data files, with the sorted result saved directly to the file. As a result, when the program reads the
+                         file, the data is already organized, eliminating the need for additional sorting operations during runtime and enhancing overall performance.</p>
+                </div><br>
+                
+                <div class="section">
+                    <h3>3rd Party Source Recognition</h3>
+                    <p>Through research, I developed a method to recognize sources from the gaming company, including forum pages, web pages, and other resources. 
+                        The program examines the URL for key features that indicate authenticity from the company, which was crucial for ensuring we relied on official 
+                        sources rather than third-party content. Additionally, it can extract titles from these URLs to provide autofill options for users. After extensive 
+                        testing, I successfully integrated YouTube support, which required a web scraper to retrieve the webpage and identify the posting channel, ensuring 
+                        it aligned with the company’s official YouTube channels. This process took longer than expected but ultimately expanded the program's capabilities and 
+                        improved the reliability of the information provided.</p>
+                </div>
+                
+                
+    
                 <br><br>
                 <h2>Interface Walkthrough</h2>
                 <table>
@@ -456,35 +1119,51 @@
                 <br><br>
                 <h2>Project Outcome</h2>
                 <div class="section">
-                    <h3>Enhanced Access with EVE Links</h3>
-                    <p>EVE Links aimed to streamline access to a plethora of valuable resources within the EVE Online universe. Offering a faster alternative to 
-                        manually searching through notebooks for links, EVE Links provided quicker and easier access to essential information, improving efficiency
-                        in assisting fellow players and aiding in volunteering efforts within the game.</p>
-                </div><br>
-                
-                <div class="section">
-                    <h3>Efficient Keyword Search</h3>
-                    <p>With EVE Links' case-insensitive search function, users could input keywords to swiftly locate relevant information without the need for 
-                        precise typing. This feature facilitated quicker assistance and information retrieval, empowering players to find what they needed promptly, 
-                        whether it was ship fittings, market trends, or mission guides, thereby aiding in their volunteering tasks within the game.</p>
-                </div><br>
-                
-                <div class="section">
-                    <h3>Reliable Performance Under Load</h3>
-                    <p>EVE Links was engineered to maintain stability and responsiveness even under heavy usage or prolonged periods of inactivity followed by sudden 
-                        intensive usage. This ensured that users could rely on the tool whenever they needed it, without worrying about slowdowns or interruptions to 
-                        their volunteering efforts within the game.</p>
-                </div><br>
-                
-                <div class="section">
-                    <h3>Limited Adoption Despite Offer</h3>
-                    <p>Despite being offered to others, EVE Links was ultimately not adopted by the wider EVE Online community, who preferred to stick with their 
-                        existing system. Despite the lack of wider adoption, EVE Links effectively served its intended purpose of providing quick access to valuable links and enhancing efforts
-                        within to help others in EVE Online.</p>
+                    <p>Although the program was not adopted by the volunteering community, which preferred traditional methods, it significantly streamlined 
+                        the process of helping other players navigate the complexities of the game. This approach aligned well with my working style, making it easier 
+                        and quicker to assist others. It alleviated considerable pressure and provided a comprehensive view of all relevant links, allowing for tailored
+                         support and effective cross-checking of information to enhance understanding.</p>
                 </div>
+
+
+
+
+
+                <br><br>
+                <h2>Lessons Learned</h2>
+                <div class="section">
+                    <h3>Dynamic Table Management</h3>
+                    <p>Although it may seem complicated at times, I've learned that it's often more efficient to remove an entire table and rebuild it when the
+                         contents change frequently. This approach allows for a working listener to be bound to each row, ensuring that it reacts live to any updates.</p>
+                </div><br>
                 
-                <br>
+                <div class="section">
+                    <h3>Data Management Strategies</h3>
+                    <p>I've discovered that it's better to store current information in a main data file, ensuring it remains safe 
+                        while only keeping the data you're actively handling in memory. This approach reduces memory usage and adds a level of redundancy, 
+                        as all saves happen instantly. By saving data in a pre-sorted manner, you can dump what's in memory and read the file from scratch
+                         without needing additional sorting. This ensures that even if the program crashes or closes unexpectedly, no data is lost and sorting only happens once.</p>
+                </div><br>
                 
+                <div class="section">
+                    <h3>Efficient Data Handling</h3>
+                    <p>The system works by saving data directly to the main data file, then dumping whatever is in memory and reading the file from scratch. 
+                        Since the data is pre-sorted at the saving stage, this process eliminates the need for additional sorting, streamlining data retrieval and 
+                        enhancing overall efficiency.</p>
+                </div><br>
+
+                <div class="section">
+                    <h3>Importance of Unit Testing</h3>
+                    <p>I utilized unit tests to ensure that core components were functioning correctly between updates. If any tests failed,
+                         I would investigate the issues, supplementing the usual debugging process to maintain stability and reliability in the system.</p>
+                </div><br>
+                
+                <div class="section">
+                    <h3>Modular Development</h3>
+                    <p>Building in a modular way proved to be a significant time-saver. By developing code in a separate project with a terminal, 
+                        I could thoroughly test its functionality before moving it into the main project. This strategy ensured that any issues were 
+                        resolved early, reducing the risk of disruptions to the overall system.</p>
+                </div><br>
             </div>
 
 
@@ -516,60 +1195,121 @@
                 </table>
 
                 <br><br>
-                <h2>Functionality</h2>
+                <h2>Initial Problem</h2>
                 <div class="section">
-                    <h3>Efficient Racer Addition</h3>
-                    <p>BoatTracker simplified the process of adding racers, ensuring swift entry of participant details into the system. 
-                        This streamlined workflow optimized the checkpoint operation.</p>
-                </div><br>
-                
-                <div class="section">
-                    <h3>Quick Racer Details Search</h3>
-                    <p>With BoatTracker, the user could rapidly search for racer details using assigned numbers, facilitating 
-                        immediate access to relevant information. This feature expedited decision-making at the checkpoint.</p>
-                </div><br>
-                
-                <div class="section">
-                    <h3>Flexible Entry Editing</h3>
-                    <p>BoatTracker allowed for the editing of previously saved entries, offering flexibility to rectify mistakes without causing disruptions. 
-                        This capability was vital in maintaining accuracy during hectic periods at the checkpoint.</p>
-                </div><br>
-                
-                <div class="section">
-                    <h3>Reliable Redundancy</h3>
-                    <p>Designed with redundancy in mind, Boatracker minimized the risk of crashes and errors. It ensured accurate inputs while permitting necessary edits, 
-                        thereby maintaining operational continuity at the checkpoint.</p>
-                </div><br>
-                
-                <div class="section">
-                    <h3>Optimized Display</h3>
-                    <p>BoatTracker's high-contrast and simplistic display design ensured readability even in outdoor environments. This user-centric approach
-                        improved usability and minimized errors during data entry.</p>
+                    <p>This project was initiated to address the inefficiencies of an outdated pen-and-paper system, which resulted in slow search times for
+                         racer numbers and limited information. I developed an app that allows users to enter a three-digit racer number and receive instant 
+                         results, including the racer’s status and timing information, in just seconds. The app needed to be quick and reliable, as it was integral 
+                         to the safety system at a checkpoint where competitors can pass at high speeds. While racers typically come individually, there are times when 
+                         several may arrive in quick succession, making it essential to provide accurate information instantly to maintain safety and efficiency. Additionally, 
+                         the app utilized mobile tower time synchronization, assuming users had their phone settings set to automatic, ensuring that the recorded time of each racer’s 
+                         passage was accurate to the millisecond.</p>
                 </div>
+                
+                <br><br>
+                <h2>Challenges</h2>
+            
+                <div class="section">
+                    <h3>Speed and Responsiveness</h3>
+                    <p>The app needed to respond quickly without delays, which was achieved through several design choices. 
+                        First, the ability to search for and add a racer was handled within the same activity. This design allowed 
+                        for seamless display swapping while keeping the keyboard visible, enabling users to transition swiftly from 
+                        answering questions to entering a suddenly arriving racer in seconds.
+                    </p>
+
+                    <p>Another key feature was the basic autofill function, which automatically converted inputs like "1" into "001" and "10" into "010."
+                         This reduced the time spent on data entry, making the process even more efficient.</p>
+
+                    <p>           
+                        Additionally, the app incorporated error-checking capabilities. While it reported any errors to the user, it still accepted
+                         entries as long as they fell within a valid range. This approach allowed users to prioritize speed over corrections, enabling 
+                         them to make adjustments later when there was more time between racers.
+                    </p>
+                    <p>
+                        The user interface was also designed with speed in mind. A simple checkbox was used to indicate a racer's status,
+                         allowing users to quickly mark whether a racer was still in the race or had been pulled out at their location. With just a tap to
+                         check or uncheck the box and a quick save, users could efficiently manage their workflow and move on to the next racer without unnecessary delays.</p>
+                </div><br>
+
+                <div class="section">
+                    <h3>Use in Outdoor Conditions</h3>
+                    <p>The app's user interface was designed with simplicity and visibility in mind, utilizing high-contrast
+                         colors such as black and white, along with dark red for error messages. This color scheme ensured that
+                          the screen remained readable in various outdoor conditions, whether under direct sunlight or in other 
+                          challenging environments. By prioritizing clarity, users could easily access crucial information without 
+                          straining their eyes, enhancing overall usability during races.</p>
+                </div><br>
+
+                <div class="section">
+                    <h3>Ensuring Instant Access</h3>
+                    <p>To prevent delays caused by having to unlock a phone, the solution was straightforward: while the app was active, 
+                        the phone would remain awake and not enter sleep mode or turn off the screen. Only the user could turn off the screen, 
+                        allowing the app to stay open for extended periods without interruptions. This ensured that users could access the app quickly 
+                        and efficiently while a racer was approaching, eliminating any potential delays during critical moments.</p>
+                </div><br>
+                
+                <div class="section">
+                    <h3>Information Accuracy</h3>
+                    <p>The app allows for editing a racer's number and status, but not the time it was logged, ensuring that corrections can be made later 
+                        if an incorrect entry was made. This functionality is supported by a visible list of the last few racers added, with the most recent at the top. 
+                        Users can quickly check the entries visually, and if something appears incorrect, they can tap to access the editing area for corrections. It is 
+                        designed with the understanding that users will only edit a racer's details when they have enough time to do so. While the editing process is efficient,
+                         it is not as fast as the swapping between searching and adding racers, which is crucial during high-pressure situations.</p>
+                </div><br>
+                
+                <div class="section">
+                    <h3>Redundancy and Reliability</h3>
+                    <p>The app was stress-tested to identify potential failures, and each time a breaking point was discovered, code was implemented to address or 
+                        prevent that issue from occurring. This included basic checks to determine whether certain actions were necessary; for instance, there was no 
+                        need to search for a racer's details if no racers had been logged. If the app found no file containing racer details, it would return results
+                         that matched the response for a search where no racers were found. This way, users would perceive the absence of racers without confusion, thereby 
+                         enhancing efficiency while maintaining clarity.</p>
+                </div><br>
+                
+                <div class="section">
+                    <h3>Keeping Everything Important Visible</h3>
+                    <p>To ensure that all critical functionality remained easily accessible, important elements were positioned in the top half, or top third, 
+                        of the screen, with minimal content—such as a copyright notice—at the bottom. This design choice was based on the assumption that the keyboard 
+                        would be open most of the time, which meant that anything placed in the lower part of the screen would likely be obscured. By keeping essential
+                         details in the upper area, the app minimized frustration and delays, enhancing the user experience during fast-paced situations.</p>
+                </div>
+                
                 
                 
                 <br><br>
                 <h2>Project Outcome</h2>
+
                 <div class="section">
-                    <h3>Checkpoint Efficiency</h3>
-                    <p>BoatTracker significantly enhanced efficiency at the checkpoint by streamlining racer tracking processes. 
-                        It facilitated quicker access to racer details, reducing waiting times and improving overall workflow efficiency.</p>
+                    <p>The app significantly increased the speed and accuracy of data coming from the checkpoint, enhancing the amount of information available
+                         to the official noting competitor numbers and answering questions. This improvement reduced the load on the radio operator, allowing f
+                         or more efficient communication. However, the app was never published and ultimately was used only by the developer.</p>
+                </div>
+                
+
+
+                <br><br>    
+                <h2>Lessons Learned</h2>
+               <div class="section">
+                    <h3>UI Design</h3>
+                    <p>One key takeaway from this project was the importance of UI layouts designed for situations where speed is critical. Ensuring that essential
+                         functions are easily accessible and visible can greatly enhance user experience in high-pressure environments. This experience reinforced my 
+                         understanding of how thoughtful design directly impacts usability and efficiency when every second counts.</p>
                 </div><br>
                 
                 <div class="section">
-                    <h3>Real-time Tracking Benefits</h3>
-                    <p>BoatTracker provided real-time passing times of boats, eliminating the need for manual tracking methods. Although its impact was confined 
-                        to the checkpoint, this feature fostered improved communication and coordination within the checkpoint team.</p>
+                    <h3>Efficient File Management</h3>
+                    <p>One important lesson learned was the value of in-line file editing. By using fixed-length records, 
+                        I discovered that it’s possible to seek to a specific location in a file and replace bytes directly without the need 
+                        to rewrite the entire file line by line. This approach not only enhances efficiency but also simplifies the process of
+                         data management within the application.</p>
                 </div><br>
                 
                 <div class="section">
-                    <h3>Enhanced Accuracy</h3>
-                    <p>By providing more accurate and reliable tracking data, Boatracker contributed to improved decision-making and record-keeping at the checkpoint. 
-                        Its precise data ensured that the checkpoint personnel had reliable information at their fingertips.</p>
-                </div>          
-                
-            
-            </div>
+                    <h3>Debugging and redundancy</h3>
+                    <p>This project reinforced the importance of debugging and the design of redundant applications through thorough planning. 
+                        By anticipating potential failure points and implementing robust checks, I learned how to create apps that are resilient 
+                        and difficult to crash. This proactive approach not only improves reliability but also enhances user confidence in the application.</p>
+                </div><br>
         </div>
     </div>
 </body>
